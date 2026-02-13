@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>The Garden of You 🌸</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Great+Vibes&family=Parisienne&family=Sacramento&family=Caveat:wght@400;500;600&family=Quicksand:wght@300;400;500;600&family=Alex+Brush&family=La+Belle+Aurore&family=Playfair+Display:wght@400;500&family=Allura&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ---------- MOBILE FIRST - MATCHING YOUR THEME ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            font-size: 14px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: radial-gradient(circle at 0% 20%, #fff5fb 0%, #ffe9f2 35%, #ffdfea 70%, #ffd5e4 100%);
+            background-attachment: fixed;
+            color: #4a1e3a;
+            line-height: 1.5;
+            min-height: 100vh;
+            padding: 0;
+            overflow-x: hidden;
+            position: relative;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* ===== FLOATING ELEMENTS ===== */
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+            overflow: hidden;
+        }
+
+        .floating-item {
+            position: absolute;
+            font-size: 1.8rem;
+            opacity: 0.25;
+            animation: floatSoft 25s infinite ease-in-out;
+            filter: drop-shadow(0 0 15px rgba(255, 120, 160, 0.3));
+        }
+
+        @keyframes floatSoft {
+            0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+            20% { opacity: 0.25; }
+            100% { transform: translateY(-15vh) rotate(380deg); opacity: 0; }
+        }
+
+        /* ===== MAIN CONTAINER ===== */
+        .container {
+            max-width: 480px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 12px 14px 30px;
+            position: relative;
+            z-index: 30;
+            background: rgba(255, 248, 252, 0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 50px 25px 50px 25px;
+            box-shadow: 0 0 60px rgba(255, 130, 170, 0.15);
+            border: 1px solid rgba(255, 200, 225, 0.4);
+        }
+
+        /* ===== HIGHLIGHT STYLES - READY FOR YOU TO USE ===== */
+        .highlight {
+            background: linear-gradient(120deg, #ffe6f0 0%, #ffd9e6 100%);
+            padding: 2px 8px;
+            border-radius: 20px;
+            color: #b32d4a;
+            font-weight: 600;
+            display: inline-block;
+            border: 1px solid #ff9eb5;
+            box-shadow: 0 2px 8px rgba(255, 150, 180, 0.2);
+        }
+
+        .highlight-pink {
+            background: #ffd9e6;
+            padding: 2px 8px;
+            border-radius: 20px;
+            color: #a52a4a;
+            font-weight: 600;
+            border: 1px solid #ffb3cb;
+        }
+
+        .highlight-gold {
+            background: #fff0d9;
+            padding: 2px 8px;
+            border-radius: 20px;
+            color: #b3593a;
+            font-weight: 600;
+            border: 1px solid #ffd9a5;
+        }
+
+        .highlight-purple {
+            background: #f0e0ff;
+            padding: 2px 8px;
+            border-radius: 20px;
+            color: #6a3a8a;
+            font-weight: 600;
+            border: 1px solid #d9b3ff;
+        }
+
+        .glow-highlight {
+            color: #b32d4a;
+            font-weight: 700;
+            text-shadow: 0 0 8px #ffb3cb, 0 0 15px #ff8aa5;
+            animation: softGlow 2s infinite;
+        }
+
+        @keyframes softGlow {
+            0%, 100% { text-shadow: 0 0 8px #ffb3cb, 0 0 15px #ff8aa5; }
+            50% { text-shadow: 0 0 12px #ff8aa5, 0 0 25px #ff6f91; }
+        }
+
+        .heart-underline {
+            position: relative;
+            display: inline-block;
+            font-weight: 700;
+            color: #b32d4a;
+        }
+
+        .heart-underline::after {
+            content: '❤️';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            text-align: center;
+            padding: 25px 15px 18px;
+            margin-bottom: 18px;
+            background: rgba(255, 245, 250, 0.7);
+            backdrop-filter: blur(20px);
+            border-radius: 100px 100px 50px 50px;
+            border: 1.5px solid rgba(255, 215, 235, 0.7);
+            box-shadow: 0 15px 30px rgba(160, 90, 130, 0.1);
+        }
+
+        .header h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2rem;
+            color: #b34b6b;
+            margin-bottom: 8px;
+            text-shadow: 2px 2px 0 rgba(255, 200, 220, 0.3);
+        }
+
+        .header p {
+            font-family: 'La Belle Aurore', cursive;
+            font-size: 0.9rem;
+            color: #7a4a5a;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 8px 16px;
+            border-radius: 50px;
+            display: inline-block;
+        }
+
+        /* ===== GATE SECTION ===== */
+        .gate {
+            background: rgba(255, 240, 250, 0.6);
+            backdrop-filter: blur(8px);
+            border-radius: 40px 15px 40px 15px;
+            padding: 20px 16px;
+            margin: 15px 0 20px;
+            border: 1.5px solid rgba(255, 180, 210, 0.5);
+            border-left: 6px solid #ff9eb5;
+            text-align: center;
+        }
+
+        .gate-title {
+            font-family: 'Sacramento', cursive;
+            font-size: 1.6rem;
+            color: #b34d66;
+            margin-bottom: 8px;
+        }
+
+        .gate-text {
+            font-family: 'Caveat', cursive;
+            font-size: 0.95rem;
+            color: #4a2a3a;
+            line-height: 1.5;
+        }
+
+        /* ===== SECTION TITLES ===== */
+        .section-title {
+            font-family: 'Sacramento', cursive;
+            font-size: 1.7rem;
+            color: #b34d66;
+            text-align: center;
+            margin: 25px 0 10px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '🌸';
+            font-size: 1.2rem;
+            margin-left: 8px;
+            opacity: 0.7;
+        }
+
+        .section-sub {
+            font-family: 'Caveat', cursive;
+            font-size: 0.95rem;
+            color: #7a4a5a;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        /* ===== FLOWER GRID ===== */
+        .flower-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin: 15px 0;
+        }
+
+        .flower-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(5px);
+            border-radius: 30px 8px 30px 8px;
+            padding: 12px 5px;
+            text-align: center;
+            border: 1.5px solid rgba(255, 150, 200, 0.4);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            min-height: 90px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .flower-card:active {
+            transform: translateY(-3px);
+            border-color: #ff8aa5;
+            background: white;
+        }
+
+        .flower-emoji {
+            font-size: 1.8rem;
+            margin-bottom: 4px;
+            filter: drop-shadow(0 2px 6px rgba(255, 120, 160, 0.3));
+        }
+
+        .flower-name {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #a13e55;
+        }
+
+        /* ===== MODAL FOR FLOWER MESSAGES ===== */
+        .flower-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(40, 20, 30, 0.8);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            padding: 20px;
+        }
+
+        .flower-modal.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-content {
+            background: rgba(255, 250, 250, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 45px 15px 45px 15px;
+            padding: 25px 20px;
+            max-width: 400px;
+            width: 100%;
+            max-height: 70vh;
+            overflow-y: auto;
+            position: relative;
+            border: 2px solid #ffc0d0;
+            box-shadow: 0 20px 40px rgba(100, 40, 60, 0.2);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 32px;
+            height: 32px;
+            background: #ffb6c1;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border: 2px solid white;
+        }
+
+        .modal-flower-icon {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .modal-flower-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.6rem;
+            color: #b34d66;
+            text-align: center;
+            margin-bottom: 15px;
+            border-bottom: 2px dashed #ffc0d0;
+            padding-bottom: 8px;
+        }
+
+        .modal-flower-message {
+            font-family: 'Caveat', cursive;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #4a2a3a;
+            white-space: pre-line;
+        }
+
+        /* ===== WILDFLOWER CARDS ===== */
+        .wildflower-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .wildflower-card {
+            background: rgba(255, 245, 250, 0.7);
+            backdrop-filter: blur(5px);
+            border-radius: 35px 10px 35px 10px;
+            padding: 14px 16px;
+            border-left: 6px solid #ff9eb5;
+            border-right: 2px solid #ffd0dd;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .wildflower-card:active {
+            transform: translateX(5px);
+            background: rgba(255, 230, 240, 0.9);
+        }
+
+        .wildflower-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .wildflower-emoji {
+            font-size: 1.8rem;
+        }
+
+        .wildflower-name {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.3rem;
+            color: #b34d66;
+        }
+
+        .wildflower-preview {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.8rem;
+            color: #7a4a5a;
+            font-style: italic;
+            padding-left: 38px;
+        }
+
+        .wildflower-full {
+            display: none;
+            font-family: 'Caveat', cursive;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #4a2a3a;
+            margin-top: 12px;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 20px;
+            border-left: 4px solid #ff8aa5;
+        }
+
+        .wildflower-card.expanded .wildflower-full {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        /* ===== TREE SECTION ===== */
+        .tree-section {
+            background: rgba(255, 240, 250, 0.6);
+            backdrop-filter: blur(8px);
+            border-radius: 50px 15px 50px 15px;
+            padding: 25px 18px;
+            margin: 20px 0;
+            text-align: center;
+            border: 1.5px solid rgba(255, 180, 210, 0.5);
+            position: relative;
+        }
+
+        .tree-emoji {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 5px 15px rgba(255, 130, 170, 0.3));
+        }
+
+        .tree-text {
+            font-family: 'Caveat', cursive;
+            font-size: 1rem;
+            color: #4a2a3a;
+            margin-bottom: 15px;
+        }
+
+        .petal-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .petal {
+            background: rgba(255, 200, 220, 0.6);
+            padding: 6px 12px;
+            border-radius: 30px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.75rem;
+            color: #a13e55;
+            font-weight: 600;
+            border: 1px solid white;
+        }
+
+        /* ===== SEEDLING SECTION ===== */
+        .seedling-section {
+            background: rgba(230, 250, 240, 0.5);
+            border-radius: 40px 10px 40px 10px;
+            padding: 20px 16px;
+            margin: 20px 0;
+            border-left: 6px solid #88c9a9;
+        }
+
+        .seedling-emoji {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .seedling-text {
+            font-family: 'Caveat', cursive;
+            font-size: 1rem;
+            color: #2a5a4a;
+            text-align: center;
+        }
+
+        /* ===== BOUQUET SECTION ===== */
+        .bouquet-section {
+            background: rgba(255, 235, 250, 0.7);
+            border-radius: 50px 15px 50px 15px;
+            padding: 25px 18px;
+            margin: 20px 0;
+            text-align: center;
+            border: 2px solid #ffc0d0;
+            position: relative;
+        }
+
+        .bouquet-emoji {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .bouquet-text {
+            font-family: 'Caveat', cursive;
+            font-size: 1rem;
+            color: #4a2a3a;
+            line-height: 1.5;
+        }
+
+        .bouquet-highlight {
+            font-family: 'Sacramento', cursive;
+            font-size: 1.5rem;
+            color: #b34d66;
+            margin-top: 12px;
+        }
+
+        /* ===== LOVE NOTES SECTION ===== */
+        .love-notes-section {
+            margin: 30px 0 20px;
+        }
+
+        .notes-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .note-card {
+            background: rgba(255, 245, 250, 0.8);
+            backdrop-filter: blur(5px);
+            border-radius: 35px 10px 35px 10px;
+            padding: 16px 18px;
+            border-left: 6px solid #ff9eb5;
+            border-right: 2px solid #ffd0dd;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .note-card:active {
+            transform: translateX(5px);
+            background: rgba(255, 230, 240, 0.9);
+        }
+
+        .note-icon {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            filter: drop-shadow(0 2px 6px rgba(255, 120, 160, 0.3));
+        }
+
+        .note-preview {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.8rem;
+            color: #a55a7a;
+            font-style: italic;
+            margin-bottom: 4px;
+        }
+
+        .note-full {
+            display: none;
+            font-family: 'Caveat', cursive;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #4a2a3a;
+            margin-top: 12px;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 25px;
+            border-left: 4px solid #ff8aa5;
+            border-right: 2px solid #ffb6d0;
+        }
+
+        .note-card.expanded .note-full {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .note-card.expanded .note-preview {
+            display: none;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== FINAL BLOOM ===== */
+        .final-bloom {
+            background: rgba(255, 220, 240, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 70px 20px 70px 20px;
+            padding: 30px 20px;
+            margin: 30px 0 20px;
+            text-align: center;
+            border: 2px solid #ffb6d0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .final-bloom:active {
+            transform: scale(0.98);
+        }
+
+        .bloom-emoji {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            animation: bloomPulse 2.5s infinite;
+        }
+
+        @keyframes bloomPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); filter: drop-shadow(0 0 15px #ff9eb5); }
+        }
+
+        .bloom-text {
+            font-family: 'Caveat', cursive;
+            font-size: 1rem;
+            color: #4a2a3a;
+            line-height: 1.6;
+        }
+
+        .bloom-hidden {
+            display: none;
+            font-family: 'Caveat', cursive;
+            font-size: 1.1rem;
+            color: #b34d66;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px dashed #ffb6d0;
+            white-space: pre-line;
+        }
+
+        .final-bloom.expanded .bloom-hidden {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* ===== EXIT GATE ===== */
+        .exit-gate {
+            background: rgba(240, 230, 250, 0.7);
+            border-radius: 50px 15px 50px 15px;
+            padding: 25px 18px;
+            margin: 30px 0 20px;
+            text-align: center;
+            border-left: 6px solid #b39eb5;
+        }
+
+        .exit-text {
+            font-family: 'Caveat', cursive;
+            font-size: 1rem;
+            color: #4a2a3a;
+            margin-bottom: 10px;
+        }
+
+        .exit-heart {
+            font-size: 2rem;
+            color: #b34d66;
+            animation: heartbeat 2s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* ===== NAVIGATION BUTTONS ===== */
+        .nav-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin: 30px 0 15px;
+        }
+
+        .nav-btn {
+            padding: 12px 24px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.1rem;
+            background: linear-gradient(145deg, #ffb6c1, #ff8aa5);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            box-shadow: 0 6px 0 #c45a75;
+            width: 100%;
+            max-width: 250px;
+            text-decoration: none;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .nav-btn:active {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 0 #c45a75;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 380px) {
+            html { font-size: 13px; }
+            .flower-grid { gap: 5px; }
+            .flower-card { padding: 8px 3px; min-height: 80px; }
+            .flower-emoji { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Elements -->
+    <div class="floating-elements">
+        <div class="floating-item" style="top:10%; left:5%; animation-delay:0s;">🌸</div>
+        <div class="floating-item" style="top:30%; left:85%; animation-delay:2s;">🌷</div>
+        <div class="floating-item" style="top:70%; left:15%; animation-delay:4s;">🌹</div>
+        <div class="floating-item" style="top:50%; left:45%; animation-delay:6s;">🌺</div>
+        <div class="floating-item" style="top:80%; left:75%; animation-delay:8s;">🌼</div>
+        <div class="floating-item" style="top:20%; left:35%; animation-delay:10s;">🌸</div>
+        <div class="floating-item" style="top:90%; left:55%; animation-delay:12s;">🌻</div>
+        <div class="floating-item" style="top:40%; left:15%; animation-delay:14s;">💮</div>
+        <div class="floating-item" style="top:60%; left:95%; animation-delay:16s;">🌸</div>
+        <div class="floating-item" style="top:15%; left:65%; animation-delay:18s;">🌷</div>
+    </div>
+
+    <!-- Flower Modal -->
+    <div class="flower-modal" id="flowerModal">
+        <div class="modal-content">
+            <div class="modal-close" onclick="closeFlowerModal()">×</div>
+            <div class="modal-flower-icon" id="modalFlowerIcon">🌸</div>
+            <div class="modal-flower-title" id="modalFlowerTitle">Rose</div>
+            <div class="modal-flower-message" id="modalFlowerMessage"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- ===== HEADER ===== -->
+        <div class="header">
+            <h1>The Garden of You</h1>
+            <p>Every flower tells a story. Every story leads to you.</p>
+        </div>
+
+        <!-- ===== GATE ===== -->
+        <div class="gate">
+            <div class="gate-title">🌸 Welcome 🌸</div>
+            <div class="gate-text">
+                Every flower here was planted by my heart.<br>
+                Watered with my tears. Nurtured with my love.<br>
+                Walk slowly. Breathe deeply. Stay as long as you need.<br>
+                <span class="highlight">This garden was made for you. Only you. Always you.</span>
+            </div>
+        </div>
+
+        <!-- ===== ROSE GARDEN ===== -->
+        <div class="section-title">The Rose Garden</div>
+        <div class="section-sub">(Tap each Rose to read its Message)</div>
+
+        <div class="flower-grid">
+            <div class="flower-card" onclick="openFlower('red')">
+                <div class="flower-emoji">🌹</div>
+                <div class="flower-name">Red Rose</div>
+            </div>
+            <div class="flower-card" onclick="openFlower('pink')">
+                <div class="flower-emoji">🌸</div>
+                <div class="flower-name">Pink Rose</div>
+            </div>
+            <div class="flower-card" onclick="openFlower('white')">
+                <div class="flower-emoji">🤍</div>
+                <div class="flower-name">White Rose</div>
+            </div>
+            <div class="flower-card" onclick="openFlower('yellow')">
+                <div class="flower-emoji">💛</div>
+                <div class="flower-name">Yellow Rose</div>
+            </div>
+            <div class="flower-card" onclick="openFlower('orange')">
+                <div class="flower-emoji">🧡</div>
+                <div class="flower-name">Orange Rose</div>
+            </div>
+            <div class="flower-card" onclick="openFlower('lavender')">
+                <div class="flower-emoji">💜</div>
+                <div class="flower-name">Lavender Rose</div>
+            </div>
+            <div class="flower-card" onclick="openFlower('peach')">
+                <div class="flower-emoji">🍑</div>
+                <div class="flower-name">Peach Rose</div>
+            </div>
+            <div class="flower-card" onclick="openFlower('blue')">
+                <div class="flower-emoji">💙</div>
+                <div class="flower-name">Blue Rose</div>
+            </div>
+            <div class="flower-card" onclick="openFlower('black')">
+                <div class="flower-emoji">🖤</div>
+                <div class="flower-name">Black Rose</div>
+            </div>
+        </div>
+
+        <!-- ===== WILDFLOWER MEADOW ===== -->
+        <div class="section-title">The Wildflower Meadow</div>
+        <div class="section-sub">(Unexpected beauty, just like you)</div>
+
+        <div class="wildflower-grid">
+            <div class="wildflower-card" onclick="toggleWildflower(this)">
+                <div class="wildflower-header">
+                    <span class="wildflower-emoji">🌼</span>
+                    <span class="wildflower-name">Daisy</span>
+                </div>
+                <div class="wildflower-preview">Tap to read →</div>
+                <div class="wildflower-full">
+                    Daisies mean <span class="highlight-gold">innocence.</span> But your innocence isn't naivety. It's the way you still believe in love even after the world tried to convince you it wasn't real. That's not innocence. That's <span class="highlight-gold">courage.</span> And it's <span class="highlight-gold">beautiful.</span>
+                </div>
+            </div>
+
+            <div class="wildflower-card" onclick="toggleWildflower(this)">
+                <div class="wildflower-header">
+                    <span class="wildflower-emoji">🌻</span>
+                    <span class="wildflower-name">Sunflower</span>
+                </div>
+                <div class="wildflower-preview">Tap to read →</div>
+                <div class="wildflower-full">
+                    Sunflowers turn toward the <span class="highlight-gold">sun.</span> And you turn toward the <span class="highlight-gold">light.</span> Even on dark days, you find something to <span class="highlight-gold">smile</span> about. That light is you. And everyone around you feels <span class="highlight-gold">warmer</span> because of it.
+                </div>
+            </div>
+
+            <div class="wildflower-card" onclick="toggleWildflower(this)">
+                <div class="wildflower-header">
+                    <span class="wildflower-emoji">🌺</span>
+                    <span class="wildflower-name">Lily</span>
+                </div>
+                <div class="wildflower-preview">Tap to read →</div>
+                <div class="wildflower-full">
+                    Lilies mean <span class="highlight-gold">devotion.</span> And I've never been more devoted to anything in my life than I am to you. Loving you isn't <span class="highlight-gold">work.</span> It's <span class="highlight-gold">breathing.</span> It's <span class="highlight-gold">living.</span> It's being <span class="highlight-gold">alive.</span>
+                </div>
+            </div>
+
+            <div class="wildflower-card" onclick="toggleWildflower(this)">
+                <div class="wildflower-header">
+                    <span class="wildflower-emoji">💜</span>
+                    <span class="wildflower-name">Wild Lavender</span>
+                </div>
+                <div class="wildflower-preview">Tap to read →</div>
+                <div class="wildflower-full">
+                    Wild lavender means <span class="highlight-gold">calm.</span> And you are my calm. When the world is too <span class="highlight-gold">loud,</span> I think of you. And suddenly, everything is okay. You are my <span class="highlight-gold">peace.</span> You are my <span class="highlight-gold">home.</span>
+                </div>
+            </div>
+
+            <div class="wildflower-card" onclick="toggleWildflower(this)">
+                <div class="wildflower-header">
+                    <span class="wildflower-emoji">💙</span>
+                    <span class="wildflower-name">Forget-Me-Not</span>
+                </div>
+                <div class="wildflower-preview">Tap to read →</div>
+                <div class="wildflower-full">
+                    Forget-me-nots mean exactly what they say. <span class="highlight-gold">Don't forget me.</span> Not because I'm <span class="highlight-gold">afraid</span> you will. But because I never want to be <span class="highlight-gold">forgotten</span> by you. I <span class="highlight-gold">promise,</span> I will never forget you. <span class="highlight-gold">Not in this life. Not in the next. Never.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== CHERRY BLOSSOM TREE ===== -->
+        <div class="section-title">The Cherry Blossom Tree</div>
+        <div class="tree-section" onclick="createPetals()">
+            <div class="tree-emoji">🌸🌳🌸</div>
+            <div class="tree-text">
+                Cherry blossoms bloom for only a short time. That's what makes them beautiful. But you bloom every single day. In every smile. In every word. You are not ephemeral. You are eternal.
+            </div>
+             <div class="petal-container" id="petalContainer">
+                <span class="petal">Beautiful</span>
+                <span class="petal">Kind</span>
+                <span class="petal">Strong</span>
+                <span class="petal">Loved</span>
+                <span class="petal">Mine</span>
+                <span class="petal">Forever</span>
+                <span class="petal">Yours</span>
+                <span class="petal">Us</span>
+                <span class="petal">Home</span>
+                <span class="petal">You</span>
+              </div>   
+        </div>
+
+        <!-- ===== SEEDLING ===== -->
+        <div class="seedling-section">
+            <div class="seedling-emoji">🌱</div>
+            <div class="seedling-text">
+                Every garden starts with one seed. Ours started with one message. One conversation. One moment. This little sprout is tomorrow. Next week. Next year. Our future. Watch it grow with me?
+            </div>
+        </div>
+
+        <!-- ===== BOUQUET ===== -->
+        <div class="bouquet-section">
+            <div class="bouquet-emoji">💐</div>
+            <div class="bouquet-text">
+                I couldn't choose just one flower for you. Because you're not just one thing. You're passion and grace. Strength and calm. Friendship and mystery. So here's all of them. Every flower. Every piece of you. Tied together with the only thing strong enough to hold them: my love.
+            </div>
+            <div class="bouquet-highlight"><span class="highlight-purple">You are the bouquet.</span></div>
+        </div>
+
+        <!-- ===== LOVE NOTES ===== -->
+        <div class="love-notes-section">
+            <div class="section-title">Little Love Notes</div>
+            <div class="section-sub">(Whispers hidden among the petals)</div>
+    
+            <div class="notes-grid">
+                <div class="note-card" onclick="toggleNote(this)">
+                    <div class="note-icon">🌸</div>
+                    <div class="note-preview">Tap to read →</div>
+                    <div class="note-full">
+                        You deserve all the flowers in the world.
+                    </div>
+                </div>
+        
+                <div class="note-card" onclick="toggleNote(this)">
+                    <div class="note-icon">🌷</div>
+                    <div class="note-preview">Tap to read →</div>
+                    <div class="note-full">
+                        Every love song finally makes sense because of you.
+                    </div>
+                </div>
+        
+                <div class="note-card" onclick="toggleNote(this)">
+                    <div class="note-icon">🌹</div>
+                    <div class="note-preview">Tap to read →</div>
+                    <div class="note-full">
+                        In a world of trends, you are my forever.
+                    </div>
+                </div>
+        
+                <div class="note-card" onclick="toggleNote(this)">
+                    <div class="note-icon">🌼</div>
+                    <div class="note-preview">Tap to read →</div>
+                    <div class="note-full">
+                        Loving you feels like coming home.
+                    </div>
+                </div>
+        
+                <div class="note-card" onclick="toggleNote(this)">
+                    <div class="note-icon">🌸</div>
+                    <div class="note-preview">Tap to read →</div>
+                    <div class="note-full">
+                        You are the peace I didn't know I was searching for.
+                    </div>
+                </div>
+        
+                <div class="note-card" onclick="toggleNote(this)">
+                    <div class="note-icon">🌺</div>
+                    <div class="note-preview">Tap to read →</div>
+                    <div class="note-full">
+                        Every moment with you feels like a beautiful dream.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== FINAL BLOOM ===== -->
+        <div class="final-bloom" id="finalBloom" onclick="toggleFinalBloom()">
+            <div class="bloom-emoji">🌸</div>
+            <div class="bloom-text">One flower remains unopened. Tap to see.</div>
+            <div class="bloom-hidden" id="bloomHidden">
+                <span class="highlight-gold">This flower only blooms when you believe how loved you are.<br></span>
+                <span class="highlight-pink">Do you know how beautiful you are?<br></span>
+                <span class="highlight-pink">Do you know how much you are loved?<br></span>
+                <span class="highlight-pink">Do you know that you are my everything?<br></span>
+                <span class="highlight-purple">Every flower is proof. Every petal is a promise.<br></span>
+                <span class="highlight">
+                <span class="heart-underline">You are loved. You are cherished. You are mine.<br>
+                    Forever.🌸<br></span></span>
+            </div>
+        </div>
+
+        <!-- ===== EXIT GATE ===== -->
+        <div class="exit-gate">
+            <div class="exit-text">
+                This garden will always be here. It doesn't close. It doesn't fade. It doesn't die. <span class="highlight-gold">Because love like ours doesn't end.</span>
+            </div>
+            <div class="exit-text">
+                Come back anytime. The flowers will be waiting. I will be waiting.
+            </div>
+            <div class="exit-heart">🤍</div>
+        </div>
+
+        <!-- ===== NAVIGATION ===== -->
+        <div class="nav-buttons">
+            <a href="myloveforyou.html" class="nav-btn">
+                <i class="fas fa-arrow-left"></i> Go Back
+            </a>
+            <a href="index.html" class="nav-btn">
+                Home <i class="fas fa-home"></i>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Flower messages data - NO HIGHLIGHTS ADDED
+        const flowerMessages = {
+            red: {
+                icon: "🌹",
+                title: "Red Rose",
+                message: `Red roses mean <span class="highlight">passion.</span> But my passion for you isn't just in moments of <span class="highlight">closeness.</span> It's in the way I miss you when <span class="highlight">you're not here.</span> It's in the way I think of you <span class="highlight">when I wake up.</span> Passion isn't just fire. It's the <span class="highlight">slow burn</span> that never goes out. And for you, <span class="highlight">it never will.</span>`
+            },
+            pink: {
+                icon: "🌸",
+                title: "Pink Rose",
+                message: `Pink roses mean <span class="highlight">grace.</span> And you are grace itself. The way you <span class="highlight">forgive.</span> The way you <span class="highlight">understand.</span> The way you <span class="highlight">love</span> me even when I don't <span class="highlight">deserve</span> it. You move through this world like a <span class="highlight">gentle breeze,</span> touching everything with <span class="highlight">kindness.</span> I am the <span class="highlight">luckiest</span> to be touched by you.`
+            },
+            white: {
+                icon: "🤍",
+                title: "White Rose",
+                message: `White roses mean <span class="highlight">purity.</span> Not the kind that's <span class="highlight">untouched.</span> But the kind that's been through everything and still remains <span class="highlight">beautiful.</span> You've been through <span class="highlight">storms.</span> You've been through <span class="highlight">pain.</span> But here you are. <span class="highlight">Still kind. Still loving. Still you.</span> That purity is <span class="highlight">strength.</span> And I see it every single day.`
+            },
+            yellow: {
+                icon: "💛",
+                title: "Yellow Rose",
+                message: `Yellow roses mean <span class="highlight">friendship.</span> Before you were my <span class="highlight">love,</span> you were my favorite person to talk to. The one I told <span class="highlight">everything.</span> The one who <span class="highlight">listened.</span> That friendship is the foundation of everything we built. And even now, you're still my <span class="highlight">best friend.</span> The one I want beside me for everything. <span class="highlight">Forever.</span>`
+            },
+            orange: {
+                icon: "🧡",
+                title: "Orange Rose",
+                message: `Orange roses mean <span class="highlight">fascination.</span> And I am fascinated by you. The way your mind works. The way you see the <span class="highlight">world.</span> I could watch you for hours. I could spend my whole life trying to <span class="highlight">understand</span> you and still be amazed every single day. You are endlessly fascinating. And I am endlessly <span class="highlight">yours.</span>`
+            },
+            lavender: {
+                icon: "💜",
+                title: "Lavender Rose",
+                message: `Lavender roses mean <span class="highlight">love at first sight.</span> But for me, it wasn't your face I fell for first. It was your <span class="highlight">soul.</span> Before I knew what you looked like, something in me recognized you. Like two flowers planted in different gardens but knowing they belong in the same soil. That was us. <span class="highlight">Always meant to grow together.</span>`
+            },
+            peach: {
+                icon: "🍑",
+                title: "Peach Rose",
+                message: `Peach roses mean <span class="highlight">sincerity.</span> Every word I've written across all these pages is true. Every <span class="highlight">promise.</span> Every <span class="highlight">prayer.</span> Every <span class="highlight">I love you.</span> Not a single one was for show. Not a single one will ever be broken. <span class="highlight">I am sincere. I am yours. I am forever yours.</span>`
+            },
+            blue: {
+                icon: "💙",
+                title: "Blue Rose",
+                message: `Blue roses mean <span class="highlight">mystery.</span> And you are the most <span class="highlight">beautiful mystery</span> I've ever known. I don't understand how someone like you exists. I don't understand how someone like you <span class="highlight">chose me.</span> But I've stopped trying to understand. Now I just thank <span class="highlight">Allah.</span> For <span class="highlight">creating</span> you. For <span class="highlight">bringing</span> you to me.`
+            },
+            black: {
+                icon: "🖤",
+                title: "Black Rose",
+                message: `Black roses mean <span class="highlight">rebirth.</span> The wrong loves, the almost loves — they all had to die so I could be empty enough for you to fill me <span class="highlight">completely.</span> And now, here I am. <span class="highlight">Reborn. New. Yours.</span> Thank you for being my new <span class="highlight">beginning.</span> Thank you for being my <span class="highlight">forever.</span>`
+            }
+        };
+
+        function openFlower(color) {
+            const flower = flowerMessages[color];
+            document.getElementById('modalFlowerIcon').textContent = flower.icon;
+            document.getElementById('modalFlowerTitle').textContent = flower.title;
+            document.getElementById('modalFlowerMessage').innerHTML = flower.message;
+            document.getElementById('flowerModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeFlowerModal() {
+            document.getElementById('flowerModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function toggleWildflower(card) {
+            card.classList.toggle('expanded');
+        }
+
+        function createPetals() {
+            const petals = document.querySelectorAll('.petal');
+            petals.forEach((petal, index) => {
+                setTimeout(() => {
+                    petal.style.transform = 'scale(1.1)';
+                    petal.style.backgroundColor = '#ffb6c1';
+                    setTimeout(() => {
+                        petal.style.transform = 'scale(1)';
+                        petal.style.backgroundColor = '';
+                    }, 200);
+                }, index * 50);
+            });
+        }
+
+        function toggleNote(card) {
+            card.classList.toggle('expanded');
+        }
+
+        function toggleFinalBloom() {
+            document.getElementById('finalBloom').classList.toggle('expanded');
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('flowerModal').addEventListener('click', function(e) {
+            if (e.target === this) closeFlowerModal();
+        });
+
+        // Touch optimizations
+        document.querySelectorAll('.flower-card, .wildflower-card, .tree-section, .final-bloom, .nav-btn').forEach(el => {
+            el.addEventListener('touchstart', function() {
+                if (!this.classList.contains('nav-btn')) {
+                    this.style.transform = 'scale(0.98)';
+                }
+            });
+            el.addEventListener('touchend', function() {
+                this.style.transform = '';
+            });
+        });
+    </script>
+</body>
+</html>

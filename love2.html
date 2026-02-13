@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>Love Notes 💖</title>
+    <!-- ALL CONTENT RESTORED + HIGHLIGHTS IN BOTH LETTERS & FINAL MESSAGE + ERRORS FIXED -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ----- COMPLETE MOBILE OPTIMIZATION, ALL ELEMENTS RESTORED ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ffd1dc 0%, #e6e6fa 25%, #ffefd5 50%, #e6e6fa 75%, #ffd1dc 100%);
+            background-size: 400% 400%;
+            animation: gradientFlow 20s ease infinite;
+            color: #333;
+            line-height: 1.5;
+            min-height: 100vh;
+            padding: 12px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255, 182, 193, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 105, 180, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(255, 239, 213, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            padding: 0 0 15px;
+        }
+
+        /* ----- WELCOME SECTION - FULLY RESTORED ----- */
+        .welcome {
+            text-align: center;
+            padding: 40px 16px;
+            margin-bottom: 30px;
+            margin-top: 0;
+            animation: fadeInScale 2.5s ease;
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 40px 16px 40px 16px;
+            box-shadow: 0 15px 35px rgba(255, 105, 180, 0.15);
+            border: 3px solid #ffb6c1;
+            position: relative;
+        }
+
+        .welcome h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.6rem;
+            color: #ff69b4;
+            margin-bottom: 12px;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.06);
+        }
+
+        .welcome p {
+            font-size: 0.8rem;
+            color: #555;
+            max-width: 380px;
+            margin: 10px auto;
+            line-height: 1.5;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* ----- MEMORY GRID - FULL CONTENT RESTORED ----- */
+        .memory-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 26px;
+            margin: 35px 0;
+        }
+
+        .memory-card {
+            background: rgba(255, 255, 255, 0.97);
+            border-radius: 26px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .memory-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #ff69b4, #da70d6, #9b6dff);
+            z-index: 2;
+        }
+
+        .memory-img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .memory-content {
+            padding: 22px 18px;
+        }
+
+        .memory-date {
+            font-family: 'Dancing Script', cursive;
+            color: #ff69b4;
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .memory-date::before {
+            content: '🌸';
+            font-size: 1.5rem;
+        }
+
+        .memory-caption {
+            font-size: 0.9rem;
+            color: #4a3a44;
+            line-height: 1.6;
+            font-family: 'Georgia', serif;
+            padding-top: 12px;
+            border-top: 1px dashed #ffb6c1;
+        }
+
+        /* ----- 6 LOVELY NOTES (FULLY RESTORED) ----- */
+        .lovely-notes {
+            background: rgba(255, 245, 250, 0.9);
+            backdrop-filter: blur(8px);
+            border-radius: 36px 16px 36px 16px;
+            padding: 28px 20px;
+            margin: 20px 0 35px;
+            border: 2px solid #ffb7c5;
+            box-shadow: 0 12px 28px rgba(255, 130, 160, 0.15);
+        }
+
+        .lovely-notes h3 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.9rem;
+            color: #b34b6b;
+            text-align: center;
+            margin-bottom: 18px;
+        }
+
+        .notes-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .note-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.05rem;
+            color: #4a3842;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 12px 18px;
+            border-radius: 60px;
+            border: 1.5px dashed #ff8da9;
+            font-family: 'Georgia', serif;
+        }
+
+        .note-item i {
+            color: #ff5e8b;
+            font-size: 1.3rem;
+            width: 26px;
+            text-align: center;
+        }
+
+        /* ----- LOVE LETTERS - ALL CONTENT RESTORED + HIGHLIGHTS ----- */
+        .love-letters-container {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            margin: 40px 0;
+        }
+
+        .love-letter {
+            background: rgba(255, 255, 255, 0.97);
+            border-radius: 36px 16px 36px 16px;
+            padding: 30px 20px;
+            border: 3px solid #ffb6c1;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+            position: relative;
+        }
+
+        .love-letter h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2rem;
+            color: #ff69b4;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .love-letter-content {
+            font-size: 0.98rem;
+            line-height: 1.75;
+            color: #444;
+            font-family: 'Georgia', serif;
+        }
+
+        .love-letter-content p {
+            margin-bottom: 18px;
+            position: relative;
+            padding-left: 16px;
+        }
+
+        .love-letter-content p::before {
+            content: '❀';
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: #ff69b4;
+            opacity: 0.7;
+        }
+
+        /* ----- HIGHLIGHT STYLE (USED IN BOTH LETTERS & FINAL MESSAGE) ----- */
+        .highlight {
+            background: linear-gradient(120deg, #ffe4ec 0%, #ffd9e2 100%);
+            padding: 3px 10px;
+            border-radius: 40px;
+            color: #b32d4a;
+            font-weight: 700;
+            font-size: 12px;
+            display: inline-block;
+            border: 1.5px solid #ff9aae;
+            box-shadow: 0 2px 8px rgba(255, 120, 160, 0.15);
+            font-style: normal;
+        }
+
+        .promise-highlight {
+            color: #ff69b4;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-align: center;
+            display: block;
+            margin: 25px 0 5px;
+            padding: 14px 12px;
+            background: linear-gradient(135deg, rgba(255, 182, 193, 0.25), rgba(255, 255, 255, 0.5));
+            border-radius: 50px;
+            border-left: 5px solid #ff69b4;
+            border-right: 5px solid #ff69b4;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .letter-signature {
+            color: #ff69b4;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-align: center;
+            display: block;
+            margin: 25px 0 5px;
+            padding: 14px 12px;
+            background: linear-gradient(135deg, rgba(255, 182, 193, 0.25), rgba(255, 255, 255, 0.5));
+            border-radius: 50px;
+            border-left: 5px solid #ff69b4;
+            border-right: 5px solid #ff69b4;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* ----- FINAL MESSAGE - ALL ORIGINAL TEXT RESTORED + HIGHLIGHTS ----- */
+        .final-message {
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(12px);
+            border-radius: 36px 16px 36px 16px;
+            padding: 32px 20px;
+            margin: 45px 0 30px;
+            border: 3px solid #ffb6c1;
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.06);
+            position: relative;
+        }
+
+        .final-message::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ff69b4, #ffb6c1, #fff, #ffb6c1, #ff69b4);
+            z-index: -1;
+            border-radius: 38px;
+            opacity: 0.3;
+        }
+
+        .final-message h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.2rem;
+            color: #ff69b4;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .final-message p {
+            font-size: 0.98rem;
+            color: #4a3f47;
+            line-height: 1.75;
+            margin-bottom: 22px;
+            text-align: left;
+            font-family: 'Georgia', serif;
+            word-break: break-word;
+        }
+
+        /* ----- NAVIGATION BUTTONS ----- */
+        .dual-button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 18px;
+            margin: 50px 0 25px;
+            padding: 0 8px;
+        }
+
+        .nav-btn {
+            width: 100%;
+            max-width: 360px;
+            padding: 15px 25px;
+            font-size: 1.1rem;
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(135deg, #ff69b4, #da70d6);
+            color: white;
+            border: none;
+            border-radius: 60px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            border: 3px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 12px 25px rgba(109, 155, 255, 0.25);
+        }
+
+        .next-btn {
+            background: linear-gradient(135deg, #ff69b4, #da70d6);
+        }
+
+        .nav-btn:active {
+            transform: scale(0.96);
+        }
+
+        /* ----- SPARKLES & HEARTS ----- */
+        .magic-sparkles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: radial-gradient(circle, white 30%, transparent 70%);
+            animation: twinkle var(--duration,5s) ease-in-out infinite;
+            opacity: 0;
+            box-shadow: 0 0 12px rgba(255,200,210,0.9);
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; transform: scale(0.3); }
+            50% { opacity: 0.8; transform: scale(1); }
+        }
+
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 1.6rem;
+            color: rgba(255, 105, 180, 0.6);
+            animation: floatHeart var(--float-duration,8s) linear infinite;
+        }
+
+        @keyframes floatHeart {
+            0% { transform: translate(0, 100vh) rotate(0deg) scale(0.6); opacity: 0; }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.7; }
+            100% { transform: translate(var(--translate-x, 20px), -20vh) rotate(360deg) scale(1); opacity: 0; }
+        }
+
+        @media (max-width: 380px) {
+            .welcome h1 { font-size: 2.2rem; }
+            .love-letter h2 { font-size: 1.7rem; }
+            .final-message h2 { font-size: 1.9rem; }
+            .lovely-notes h3 { font-size: 1.7rem; }
+            .note-item { font-size: 0.95rem; }
+            .memory-img { height: 350px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- SPARKLES & HEARTS -->
+    <div class="magic-sparkles" id="sparkles"></div>
+    <div class="floating-hearts">
+        <div class="heart" style="--float-duration: 7s; --translate-x: 25px;">💝</div>
+        <div class="heart" style="--float-duration: 9s; --translate-x: -35px;">💖</div>
+        <div class="heart" style="--float-duration: 8s; --translate-x: 45px;">💗</div>
+        <div class="heart" style="--float-duration: 10s; --translate-x: -25px;">💓</div>
+        <div class="heart" style="--float-duration: 6s; --translate-x: 35px;">💕</div>
+    </div>
+
+    <div class="container">
+        <!-- WELCOME SECTION - FULLY RESTORED -->
+        <section class="welcome">
+            <h1>🌸My Sweetheart🌸</h1>
+            <p>Thank You For Coming Into My Life 👀❤️😘</p>
+            <p>You Mean The Whole World To Me Jannaw 🌸💋😘</p>
+        </section>
+
+        <!-- MEMORIES GRID - ALL CAPTIONS RESTORED -->
+        <div class="memory-container">
+            <div class="memory-card">
+                <img src="./Images/Rapunzel1.jpg" alt="My Princess👑" class="memory-img">
+                <div class="memory-content">
+                    <div class="memory-date">My Wife 👑</div>
+                    <div class="memory-caption">My Lifeline 🙈 My Dharkan ❤️ My Beloved Jaan You Are Veru 'Precious' To Me 😊 My Jaan, I Love You More Than 'Anything' 💋💕</div>
+                </div>
+            </div>
+            <div class="memory-card">
+                <img src="./Images/Rapunzel2.jpg" alt="My Wife👑" class="memory-img">
+                <div class="memory-content">
+                    <div class="memory-date">My Princess 👑</div>
+                    <div class="memory-caption">You're Not Just A Part Of My 'Prayers'🎀❤️ You're The 'Aameen' Of Every Single One🌸🤍</div>
+                </div>
+            </div>
+            <div class="memory-card">
+                <img src="./Images/Rapunzel3.jpg" alt="My Queen👑" class="memory-img">
+                <div class="memory-content">
+                    <div class="memory-date">My Queen 👑</div>
+                    <div class="memory-caption">I Feel Like I'm The Luckiest Person Cause I Have You In My Life 🥰🌸💋🧸✨</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6 LOVELY NOTES - FULLY RESTORED -->
+        <div class="lovely-notes">
+            <h3>💖 Little whispers 💖</h3>
+            <div class="notes-grid">
+                <div class="note-item"><i class="fas fa-heart"></i> Your Eyes Are My Favorite Mirror</div>
+                <div class="note-item"><i class="fas fa-star"></i> Every Moment With You Is Magic</div>
+                <div class="note-item"><i class="fas fa-cloud"></i> You're My Always And Forever</div>
+                <div class="note-item"><i class="fas fa-moon"></i> Home Is Wherever You Are</div>
+                <div class="note-item"><i class="fas fa-sun"></i> You Make Everything Brighter</div>
+                <div class="note-item"><i class="fas fa-infinity"></i> My Love For You Has No End</div>
+            </div>
+        </div>
+
+        <!-- LOVE LETTERS - BOTH LETTERS WITH HIGHLIGHTS, ALL CONTENT RESTORED -->
+        <div class="love-letters-container">
+            <!-- FIRST LETTER: My Eternal Promise + HIGHLIGHTS -->
+            <div class="love-letter">
+                <h2>🌸My Eternal Promise🌸</h2>
+                <div class="love-letter-content">
+                    <p>My Beloved Begum G,</p>
+                    <p>I promise to <span class="highlight">choose you every single day</span>, to stand by your side through every storm, and to celebrate with you in every sunshine.</p>
+                    <p>I promise to listen, to understand, to support, and to love you more with each passing day.</p> 
+                    <p>I promise to be your <span class="highlight">safe haven</span>, your biggest supporter, and your forever love.</p>
+                    <p>I promise to cherish you, to respect you, and to honor the incredible person you are. No matter where life takes us, no matter what challenges we face, my love for you will remain <span class="highlight">constant, unwavering, and eternal.</span> You have my heart completely and forever.</p>
+                    <div class="promise-highlight">I am yours today, tomorrow, and always. <br>🌸</div>
+                </div>
+            </div>
+            
+            <!-- SECOND LETTER: EXACT ENVELOPE TEXT + MULTIPLE HIGHLIGHTS -->
+            <div class="love-letter">
+                <h2>🌸My Wifey G🌸</h2>
+                <div class="love-letter-content">
+                    <p style="padding-left: 0; text-align: left; font-size: 0.8rem;">The <span class="highlight">"Queen👑"</span> Of My "Heart♥️"<br>The Only <span class="highlight">"Love🥰"</span> Of My "Life🤍"<br>The <span class="highlight">"Princess💝"</span> Of My "Dreams😇"</p>
+                    
+                    <p>😍♥️🌎 I Don't Know How I Will Express My Feelings To You. Since I'm With You, I Find Everything So Beautiful And New. <span class="highlight">Your Love Is So Passionate</span> That It Makes Me Forget All My Pain. Your Love Is So Pure That It Takes Me To THe Feeling Of Allure💫.</p>
+                    
+                    <p>You Know What; <span class="highlight">You're My True Love In Life🌸.</span> All The Time Spent With You, All The Wonderful And New Moments,😍 I Don't Know How I Would Survive Without You. <span class="highlight">I Want To Love You Forever</span> And Till The End Of Life.😊</p>
+                    
+                    <p>I'm Thankful To You Because You Came Into My Life, <span class="highlight">My Cute Little Sparrow🌸🎀😘</span> And Now You're Mine🤍</p>
+                    
+                    <div class="letter-signature">🌸Now You're Mine😘</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FINAL MESSAGE - ALL ORIGINAL TEXT RESTORED + HIGHLIGHTS ADDED -->
+        <section class="final-message">
+            <h2>🌸Mellii Gudhyaaa🌸</h2>
+            
+            <!-- FIRST PARAGRAPH - COMPLETE ORIGINAL TEXT WITH HIGHLIGHTS -->
+            <p>Main Aapsey Kehna Chahta Hoon Ky Thank You So Much Meri Zindagi Main Aany Ky Liye💗 <span class="highlight">Thank You So Much Meri Zindagi Ko Itna Khubsurat Bananay Ky Liye</span> Or Hamesha Mujhy Hansanay Ky Liye, Hamesha Mujhy Samajhnay Ky Liye, Hamesha Mera Sath Dene Ky Liye🤧😊😍 Hamesha Meri Itni Zada Fikar Karnay Ky Liye <span class="highlight">Aap Mere Liye Mera Sab Kuch Hain</span> Meri Jaan Apka Hona Mere Liye Bht Zaroori Hy💗🌍 Apky Bina Main Kuch Bhi Nahi Hoon🥺🤍 Meri Choti Si Jaan Apky Jin Bhoot Ko Apsey Bht Zaada Mohabat Hy💗💋👻🤍 <span class="highlight">Mujhy Apsey Apky Ilawa Kuch Nahi Chahiye</span> Meli Choti Si Jaan Mujhy Har Haal Main Har Waqt Bas Aap Hi Chahiye🥺💗 Hamesha Aese Hi Mere Sath Rehna 💗😌♥️💋😘 <br>ILYSM Mera Bachaaa🎀😚♥️💋😘</p>
+            
+            <!-- FINAL HIGHLIGHT - RESTORED -->
+            <span class="promise-highlight">I'm Forever Yours, Today And Always. 💕</span>
+        </section>
+
+        <!-- NAVIGATION BUTTONS -->
+        <div class="dual-button-container">
+            <a href="love1.html" class="nav-btn">
+                <i class="fas fa-arrow-left"></i>
+                <span>Go Back 💝</span>
+            </a>
+            <a href="love3.html" class="nav-btn next-btn">
+                <span>My Eternal Promise💖</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // ALL FUNCTIONS FIXED AND RESTORED
+        window.addEventListener('DOMContentLoaded', function() {
+            createSparkles();
+            createExtraHearts();
+            fixImageErrors();
+        });
+
+        function createSparkles() {
+            const container = document.getElementById('sparkles');
+            if (!container) return;
+            const colors = ['#ff69b4', '#ffb6c1', '#ffffff', '#ff1493', '#da70d6'];
+            for (let i = 0; i < 25; i++) {
+                const s = document.createElement('div');
+                s.className = 'sparkle';
+                s.style.left = Math.random() * 100 + 'vw';
+                s.style.top = Math.random() * 100 + 'vh';
+                s.style.setProperty('--duration', (Math.random() * 4 + 3) + 's');
+                s.style.animationDelay = Math.random() * 3 + 's';
+                s.style.background = `radial-gradient(circle, ${colors[Math.floor(Math.random() * colors.length)]} 40%, transparent 70%)`;
+                container.appendChild(s);
+            }
+        }
+
+        function createExtraHearts() {
+            const container = document.querySelector('.floating-hearts');
+            if (!container) return;
+            const hearts = ['🌸', '✨', '🦋', '🌟', '🌹', '💐', '💎', '🎀', '💌'];
+            for (let i = 0; i < 12; i++) {
+                const h = document.createElement('div');
+                h.className = 'heart';
+                h.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                h.style.setProperty('--float-duration', (Math.random() * 6 + 6) + 's');
+                h.style.left = Math.random() * 100 + 'vw';
+                h.style.animationDelay = Math.random() * 4 + 's';
+                h.style.setProperty('--translate-x', (Math.random() * 60 - 30) + 'px');
+                container.appendChild(h);
+            }
+        }
+
+        function fixImageErrors() {
+            // Ensures all images have error handlers
+            const imgs = document.querySelectorAll('.memory-img');
+            imgs.forEach(img => {
+                if (!img.hasAttribute('onerror')) {
+                    img.onerror = function() {
+                        this.outerHTML = '<div style="width:100%; height:' + (this.height || 360) + 'px; background:linear-gradient(135deg,#ff69b4,#da70d6); display:flex; align-items:center; justify-content:center; color:white; font-size:22px; border-radius:26px;">💖 ' + (this.alt || 'My Love') + ' 💖</div>';
+                    };
+                }
+            });
+        }
+    </script>
+</body>
+</html>

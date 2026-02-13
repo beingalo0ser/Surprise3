@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>Love Notes 💖</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Import Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Pacifico&family=Quicksand:wght@300;400;500;600;700&family=Sacramento&display=swap');
+
+        /* ===== RESET & BASE – refined mobile first ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 14px; /* base for mobile, scaled up via media */
+        }
+
+        body {
+            min-height: 100vh;
+            background: radial-gradient(circle at 20% 30%, #ffe9f0 0%, #fff3e8 45%, #fef9ff 90%);
+            font-family: 'Quicksand', sans-serif;
+            overflow-x: hidden;
+            color: #4a2e4a;
+            position: relative;
+            line-height: 1.5;
+            padding-bottom: 70px; /* space for mobile nav */
+        }
+
+        /* softer animated pastel gradient */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(145deg, #ffeef5 0%, #fff9f5 40%, #f5f0ff 70%, #ffeef2 100%);
+            background-size: 300% 300%;
+            animation: softFlow 22s ease infinite;
+            pointer-events: none;
+            z-index: -2;
+        }
+
+        @keyframes softFlow {
+            0%, 100% { background-position: 0% 0%; }
+            33% { background-position: 60% 40%; }
+            66% { background-position: 30% 80%; }
+        }
+
+        .magic-dust {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            background-image: 
+                radial-gradient(circle at 8% 30%, rgba(255, 200, 210, 0.15) 0%, transparent 35%),
+                radial-gradient(circle at 95% 70%, rgba(200, 180, 255, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 45% 85%, rgba(255, 215, 235, 0.1) 0%, transparent 30%),
+                radial-gradient(circle at 15% 70%, rgba(255, 230, 200, 0.1) 0%, transparent 25%);
+        }
+
+        /* floating hearts more delicate */
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 1.3rem;
+            opacity: 0;
+            animation: floatSoft 18s infinite linear;
+            filter: drop-shadow(0 0 4px rgba(255, 160, 190, 0.3));
+        }
+
+        @keyframes floatSoft {
+            0% { transform: translateY(100vh) translateX(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.4; }
+            100% { transform: translateY(-15vh) translateX(var(--end-x, 30px)) rotate(360deg); opacity: 0; }
+        }
+
+        /* Container – refined padding */
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0.8rem 1rem 2rem;
+            position: relative;
+            z-index: 5;
+        }
+
+        /* ===== HEADER – more intimate ===== */
+        .magical-header {
+            text-align: center;
+            padding: 2.2rem 0.5rem 1.8rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .magical-header::before {
+            content: '🌿';
+            position: absolute;
+            left: 5%;
+            top: 20%;
+            font-size: 2rem;
+            opacity: 0.25;
+            transform: rotate(-10deg);
+        }
+        .magical-header::after {
+            content: '🌸';
+            position: absolute;
+            right: 5%;
+            bottom: 10%;
+            font-size: 2.2rem;
+            opacity: 0.25;
+            transform: rotate(15deg);
+        }
+
+        .magical-header h1 {
+            font-family: 'Sacramento', cursive;
+            font-size: 2.8rem; 
+            color: #c4538a; /* deeper romantic rose */
+            text-shadow: 0px 2px 8px rgba(255, 140, 170, 0.25);
+            margin-bottom: 0.4rem;
+            letter-spacing: 2px;
+            animation: softFloat 5s ease-in-out infinite;
+            word-break: break-word;
+            line-height: 1.2;
+        }
+
+        @keyframes softFloat {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-6px) scale(1.02); }
+        }
+
+        .magical-header p {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.45rem;
+            color: #8a5c7a;
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.45;
+            padding: 0 0.8rem;
+            text-shadow: 0 1px 4px rgba(255, 200, 200, 0.4);
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(3px);
+            border-radius: 40px;
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            border: 1px solid rgba(255, 220, 240, 0.5);
+        }
+
+        /* ===== NAVIGATION – mobile first, sleeker ===== */
+        .page-nav {
+            display: none; /* hidden on mobile, using bottom bar */
+        }
+
+        .mobile-nav {
+            display: block;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 250, 245, 0.88);
+            backdrop-filter: blur(16px);
+            padding: 0.6rem 0.2rem;
+            z-index: 1000;
+            box-shadow: 0 -6px 25px rgba(200, 120, 140, 0.1);
+            border-top: 1px solid rgba(255, 200, 210, 0.5);
+            border-radius: 28px 28px 0 0;
+        }
+
+        .mobile-nav-buttons {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .mobile-nav-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            background: none;
+            border: none;
+            color: #b3777e;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            border-radius: 24px;
+            transition: all 0.25s ease;
+            letter-spacing: 0.3px;
+            touch-action: manipulation;
+        }
+
+        .mobile-nav-btn i {
+            font-size: 1.25rem;
+            margin-bottom: 2px;
+            color: #d68b9c;
+        }
+
+        .mobile-nav-btn.active {
+            background: rgba(255, 140, 170, 0.18);
+            color: #b34e6e;
+            font-weight: 700;
+        }
+        .mobile-nav-btn.active i {
+            color: #c44a6a;
+            text-shadow: 0 0 10px rgba(255, 120, 160, 0.5);
+        }
+
+        /* ===== SECTIONS – soft & airy ===== */
+        .page-section {
+            min-height: 90vh; /* less aggressive */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2.2rem 1rem;
+            margin: 1.2rem 0 2rem;
+            border-radius: 32px;
+            background: rgba(255, 252, 250, 0.7);
+            backdrop-filter: blur(14px);
+            box-shadow: 0 12px 40px rgba(140, 80, 100, 0.06);
+            position: relative;
+            border: 1px solid rgba(255, 220, 230, 0.7);
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.1rem; /* reduced for mobile */
+            font-weight: 700;
+            color: #b34e71;
+            margin-bottom: 1.2rem;
+            position: relative;
+            display: inline-block;
+            align-self: center;
+            padding: 0 0.8rem;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 12px rgba(255, 170, 200, 0.3);
+        }
+        .section-title::after {
+            content: '✦';
+            position: absolute;
+            bottom: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.3rem;
+            color: #ff99aa;
+            background: rgba(255,240,245,0.6);
+            padding: 0.2rem 0.8rem;
+            border-radius: 50px;
+            letter-spacing: 6px;
+            width: auto;
+            height: auto;
+            background: none;
+        }
+
+        /* ===== LOVE LETTERS – more elegant, compact ===== */
+        .love-letters-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+
+        .love-letter-card {
+            background: rgba(255, 248, 250, 0.95);
+            border-radius: 28px;
+            padding: 1.4rem 1.2rem;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1);
+            border: 1.5px solid rgba(255, 210, 220, 0.7);
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 6px 14px rgba(170, 120, 140, 0.04);
+            backdrop-filter: blur(4px);
+        }
+        .love-letter-card:hover {
+            transform: translateY(-5px);
+            border-color: #ffa5b9;
+            background: white;
+        }
+
+        .letter-seal {
+            position: absolute;
+            top: -12px;
+            right: -10px;
+            width: 46px;
+            height: 46px;
+            background: linear-gradient(145deg, #ffa5b4, #ffb8c9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 6px 14px rgba(255, 100, 130, 0.3);
+            border: 2px solid #fff6f5;
+        }
+
+        .letter-date {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #a3516b;
+            margin-bottom: 0.4rem;
+        }
+
+        .letter-preview {
+            font-size: 0.92rem;
+            line-height: 1.55;
+            color: #5a4a4f;
+            margin-bottom: 0.7rem;
+            font-weight: 450;
+            font-style: italic;
+            letter-spacing: 0.2px;
+            word-break: break-word;
+        }
+
+        .letter-read-btn {
+            align-self: flex-start;
+            background: transparent;
+            border: none;
+            color: #b35f7a;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.3s, color 0.2s;
+            padding: 0.6rem 0;
+            touch-action: manipulation;
+        }
+        .letter-read-btn i {
+            font-size: 0.8rem;
+            color: #d47b94;
+        }
+        .love-letter-card:active {
+            background: #fff9fc;
+        }
+
+        /* ===== MODAL – refined mobile ===== */
+        .letter-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(30, 10, 20, 0.8);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s ease;
+            padding: 0.8rem;
+        }
+        .letter-modal.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .modal-content {
+            background: #fffcf9;
+            border-radius: 32px;
+            padding: 1.8rem 1.4rem;
+            max-width: 500px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.92);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border: 2px solid #ffe2e5;
+            box-shadow: 0 20px 40px rgba(150, 60, 80, 0.2);
+        }
+        .letter-modal.active .modal-content {
+            transform: scale(1);
+        }
+        .close-modal {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #ffeeee;
+            border: none;
+            font-size: 1.6rem;
+            color: #b36177;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.2s;
+            font-weight: 300;
+            z-index: 2001;
+            border: 1px solid #ffcfcf;
+        }
+        .full-letter {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.4rem;
+            line-height: 1.65;
+            color: #4c3546;
+            padding: 0.8rem 0 0.2rem;
+            word-break: break-word;
+            font-weight: 500;
+        }
+        .letter-signature {
+            text-align: right;
+            font-family: 'Sacramento', cursive;
+            font-size: 1.9rem;
+            color: #bd6080;
+            margin-top: 0.8rem;
+            border-top: 1px dashed #ffc0cb;
+            padding-top: 1rem;
+        }
+
+        /* ===== SWEET MESSAGES – chat bubbles softer ===== */
+        .messages-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .message-bubble {
+            background: rgba(255, 248, 245, 0.9);
+            border-radius: 24px 24px 24px 6px;
+            padding: 1.1rem 1.3rem;
+            position: relative;
+            max-width: 90%;
+            border: 1px solid rgba(255, 190, 200, 0.4);
+            word-wrap: break-word;
+            box-shadow: 0 4px 10px rgba(180, 130, 140, 0.02);
+        }
+        .message-bubble.left {
+            align-self: flex-start;
+            border-bottom-left-radius: 6px;
+            background: linear-gradient(115deg, #ffecee, #fff4f7);
+        }
+        .message-bubble.right {
+            align-self: flex-end;
+            border-bottom-right-radius: 6px;
+            background: linear-gradient(115deg, #f5f0ff, #f8f2fa);
+        }
+        .message-time {
+            font-size: 0.7rem;
+            color: #9a7a82;
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            letter-spacing: 0.2px;
+        }
+        .message-text {
+            font-size: 0.95rem;
+            line-height: 1.55;
+            color: #4f3a44;
+            font-weight: 500;
+        }
+        .message-emoji {
+            font-size: 1.2rem;
+            margin-right: 6px;
+        }
+        .message-input-container {
+            margin-top: 2rem;
+            background: rgba(255, 250, 245, 0.8);
+            padding: 1.3rem;
+            border-radius: 32px;
+            backdrop-filter: blur(10px);
+            border: 1px solid #ffe1e7;
+        }
+        .message-input {
+            width: 100%;
+            min-height: 90px;
+            padding: 1rem;
+            border: 1.5px solid #ffd5dc;
+            border-radius: 20px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.95rem;
+            background: #fffbfb;
+            resize: vertical;
+        }
+        .send-message-btn {
+            margin-top: 1rem;
+            padding: 0.8rem 1.8rem;
+            background: linear-gradient(135deg, #ff95a8, #c270ab);
+            color: white;
+            border: none;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            width: 100%;
+            box-shadow: 0 6px 14px rgba(200, 110, 150, 0.25);
+            letter-spacing: 1px;
+        }
+
+        /* ===== SURPRISE – delicate ===== */
+        .surprise-container { text-align: center; }
+        .surprise-box {
+            background: rgba(255, 250, 250, 0.7);
+            backdrop-filter: blur(14px);
+            border-radius: 40px;
+            padding: 1.8rem 1.2rem;
+            margin: 1.5rem 0;
+            border: 2px dashed rgba(255, 160, 180, 0.7);
+            position: relative;
+        }
+        .surprise-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.55rem;
+            color: #b34d6a;
+            margin-bottom: 1.2rem;
+            line-height: 1.5;
+            font-weight: 600;
+        }
+        .surprise-button {
+            padding: 0.9rem 1.8rem;
+            font-size: 1.1rem;
+            font-family: 'Pacifico', cursive;
+            background: radial-gradient(circle at 30% 20%, #ff8aae, #b377b7);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.35s;
+            box-shadow: 0 10px 20px rgba(170, 100, 150, 0.3);
+            width: 100%;
+            max-width: 280px;
+            margin: 0.5rem auto;
+            border: 2px solid rgba(255,255,240,0.5);
+            letter-spacing: 1.5px;
+        }
+        .surprise-result {
+            margin-top: 1.8rem;
+            padding: 1.6rem 1.2rem;
+            background: rgba(255, 250, 245, 0.9);
+            border-radius: 32px;
+            display: none;
+            border: 1px solid #ffc1cc;
+            box-shadow: 0 10px 30px rgba(200,130,140,0.08);
+        }
+        .surprise-result.active {
+            display: block;
+            animation: revealGentle 0.7s ease;
+        }
+        @keyframes revealGentle {
+            0% { opacity: 0; transform: scale(0.92) translateY(15px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        /* ===== DUAL BUTTON – dreamy ===== */
+        .dual-button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            margin: 2.5rem 0 1rem;
+            padding: 0.5rem;
+        }
+        .back-btn, .nav-btn {
+            padding: 0.9rem 1.8rem;
+            font-size: 1.1rem;
+            font-family: 'Pacifico', cursive;
+            border: none;
+            border-radius: 60px;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            max-width: 300px;
+            box-shadow: 0 10px 18px rgba(0,0,0,0.03);
+            transition: all 0.3s;
+            border: 2px solid rgba(255,255,255,0.6);
+            letter-spacing: 1px;
+            backdrop-filter: blur(5px);
+        }
+        .back-btn {
+            background: linear-gradient(145deg, #87c7e0, #7fa3d1);
+            color: white;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .nav-btn {
+            background: linear-gradient(145deg, #fc92a3, #d386b0);
+            color: white;
+        }
+        .back-btn i, .nav-btn i {
+            font-size: 1.1rem;
+        }
+
+        /* ===== TYPOGRAPHY TWEAKS – only styling, no text change ===== */
+        p, div, span {
+            word-break: break-word;
+        }
+
+        /* soft extra glow */
+        .fa-heart, .fa-comment, .fa-gift {
+            filter: drop-shadow(0 2px 4px rgba(255, 128, 128, 0.2));
+        }
+
+        /* ===== MEDIA – fine tune for very small ===== */
+        @media (max-width: 380px) {
+            html { font-size: 13px; }
+            .magical-header h1 { font-size: 2.5rem; }
+            .section-title { font-size: 1.9rem; }
+            .letter-date { font-size: 1.25rem; }
+            .full-letter { font-size: 1.3rem; }
+        }
+
+        @media (min-width: 600px) {
+            .container { padding: 0.8rem 1.5rem; }
+            .love-letters-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        /* Touch optimizations */
+        button, .love-letter-card, .nav-dot, .mobile-nav-btn {
+            min-height: 48px;
+        }
+        input, textarea {
+            font-size: 16px !important;
+        }
+
+        /* additional romantic flair – no content change, only visual */
+        .page-section::after {
+            content: '✧';
+            position: absolute;
+            bottom: 8px;
+            right: 18px;
+            font-size: 2rem;
+            color: #ffd0d6;
+            opacity: 0.3;
+            font-weight: 100;
+            transform: rotate(10deg);
+        }
+
+        /* love letter card little sparkle */
+        .love-letter-card .letter-seal i {
+            text-shadow: 0 0 8px white;
+        }
+
+        /* modal text more elegant */
+        .full-letter p { margin-bottom: 0.8rem; }
+
+        /* no single word changed — only styles */
+        .surprise-result h3, .surprise-result p, .surprise-result div p {
+            font-size: inherit; /* keep original words, just apply styles */
+        }
+        .surprise-result h3 {
+            font-size: 1.9rem !important;
+            font-weight: 600;
+        }
+        .surprise-result div p {
+            font-size: 1.4rem !important;
+        }
+        /* preserve original phrasing */
+    </style>
+</head>
+<body>
+    <!-- Background Elements (unchanged, only visual) -->
+    <div class="magic-dust"></div>
+    <div class="floating-hearts" id="floating-hearts"></div>
+
+    <!-- Desktop Navigation Dots – hidden on mobile, keep for structure -->
+    <div class="page-nav">
+        <div class="nav-dot active" data-title="Love Letters" onclick="scrollToSection('section1')"></div>
+        <div class="nav-dot" data-title="Sweet Messages" onclick="scrollToSection('section2')"></div>
+        <div class="nav-dot" data-title="Surprise" onclick="scrollToSection('section3')"></div>
+    </div>
+
+    <!-- Mobile Navigation Bar – refined already -->
+    <nav class="mobile-nav">
+        <div class="mobile-nav-buttons">
+            <button class="mobile-nav-btn active" onclick="scrollToSection('section1')">
+                <i class="fas fa-heart"></i>
+                <span>Letters</span>
+            </button>
+            <button class="mobile-nav-btn" onclick="scrollToSection('section2')">
+                <i class="fas fa-comment"></i>
+                <span>Messages</span>
+            </button>
+            <button class="mobile-nav-btn" onclick="scrollToSection('section3')">
+                <i class="fas fa-gift"></i>
+                <span>Surprise</span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Header – same lovely words -->
+        <header class="magical-header">
+            <h1>Garden Of Love 🌸</h1>
+            <p>Where love letters bloom and sweet whispers float on gentle breezes...</p>
+        </header>
+
+        <!-- SECTION 1: LOVE LETTERS -->
+        <section id="section1" class="page-section">
+            <h2 class="section-title">Sealed With Love 💌</h2>
+            <div class="love-letters-grid">
+                <!-- Letter 1 -->
+                <div class="love-letter-card" onclick="openLetter(0)">
+                    <div class="letter-seal">💝</div>
+                    <div class="letter-date">My First Promise</div>
+                    <div class="letter-preview">
+                        The day our souls met, I knew my search was over. You were the answer to every silent prayer...
+                    </div>
+                    <button class="letter-read-btn">
+                        Read Full Letter <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                <!-- Letter 2 -->
+                <div class="love-letter-card" onclick="openLetter(1)">
+                    <div class="letter-seal">🌹</div>
+                    <div class="letter-date">When You Smile</div>
+                    <div class="letter-preview">
+                        Your smile is my favorite sunrise, painting my world with colors I never knew existed...
+                    </div>
+                    <button class="letter-read-btn">
+                        Read Full Letter <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                <!-- Letter 3 -->
+                <div class="love-letter-card" onclick="openLetter(2)">
+                    <div class="letter-seal">✨</div>
+                    <div class="letter-date">Forever Ours</div>
+                    <div class="letter-preview">
+                        In the quiet moments, when the world sleeps, I find myself thinking of our forever...
+                    </div>
+                    <button class="letter-read-btn">
+                        Read Full Letter <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: SWEET MESSAGES -->
+        <section id="section2" class="page-section">
+            <h2 class="section-title">Whispers of Love 💭</h2>
+            <div class="messages-container">
+                <!-- Message 1 -->
+                <div class="message-bubble left">
+                    <div class="message-time"><i class="far fa-clock"></i> Just now</div>
+                    <div class="message-text">
+                        <span class="message-emoji">💕</span>
+                        Every time I think of you, my heart does a little happy dance.
+                    </div>
+                </div>
+                <!-- Message 2 -->
+                <div class="message-bubble right">
+                    <div class="message-time"><i class="far fa-clock"></i> Today</div>
+                    <div class="message-text">
+                        <span class="message-emoji">🌟</span>
+                        You're the best thing that ever happened to me. I mean it.
+                    </div>
+                </div>
+                <!-- Message 3 -->
+                <div class="message-bubble left">
+                    <div class="message-time"><i class="far fa-clock"></i> Yesterday</div>
+                    <div class="message-text">
+                        <span class="message-emoji">🌸</span>
+                        I was just smiling thinking about your laugh. It's my favorite sound.
+                    </div>
+                </div>
+                <!-- Message 4 -->
+                <div class="message-bubble right">
+                    <div class="message-time"><i class="far fa-clock"></i> Last night</div>
+                    <div class="message-text">
+                        <span class="message-emoji">💖</span>
+                        You make me want to be a better person every single day.
+                    </div>
+                </div>
+                <!-- Message 5 -->
+                <div class="message-bubble left">
+                    <div class="message-time"><i class="far fa-clock"></i> Always</div>
+                    <div class="message-text">
+                        <span class="message-emoji">🌙</span>
+                        No matter what happens, I'll always choose you. Again and again.
+                    </div>
+                </div>
+                <!-- Add Your Own Message -->
+                <div class="message-input-container">
+                    <h3 style="color: #b56576; margin-bottom: 0.8rem; font-size: 1.2rem; font-weight: 600;">Add Your Sweet Message 💌</h3>
+                    <textarea class="message-input" placeholder="Write your sweet message here..."></textarea>
+                    <button class="send-message-btn" onclick="sendMessage()">
+                        <i class="fas fa-paper-plane"></i> Send Love
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: SURPRISE -->
+        <section id="section3" class="page-section">
+            <h2 class="section-title">A Little Surprise ✨</h2>
+            <div class="surprise-container">
+                <div class="surprise-box">
+                    <p class="surprise-text">
+                        My love, there's something special waiting just for you.<br>
+                        A little magic to brighten your day. Are you ready?
+                    </p>
+                    <button class="surprise-button" onclick="revealSurprise()">
+                        <i class="fas fa-gift"></i> Open Your Surprise
+                    </button>
+                </div>
+                <div class="surprise-result" id="surpriseResult">
+                    <h3 style="color: #b34e71; font-family: 'Dancing Script'; font-size: 2rem; margin-bottom: 0.8rem;">
+                        For My Beautiful Soulmate 🌹
+                    </h3>
+                    <p style="font-size: 1rem; line-height: 1.7; margin-bottom: 1.2rem; font-weight: 450;">
+                        I want you to know that you are loved more than words can express.<br>
+                        Every moment with you is a treasure, and I'm endlessly grateful for your presence in my life.
+                    </p>
+                    <div style="background: rgba(255, 200, 210, 0.12); padding: 1rem; border-radius: 24px; margin: 1rem 0;">
+                        <p style="font-family: 'Dancing Script'; font-size: 1.6rem; color: #8a5682;">
+                            "You are my today and all of my tomorrows. 💫"
+                        </p>
+                    </div>
+                    <button class="surprise-button" onclick="createMagicEffect()" style="background: linear-gradient(135deg, #faaa7a, #e5958c);">
+                        <i class="fas fa-magic"></i> Create More Magic
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dual Button Container -->
+        <div class="dual-button-container">
+            <a href="love2.html" class="back-btn" aria-label="Go Back to Previous Page">
+                <i class="fas fa-arrow-left"></i>
+                <span>Go Back 💝</span>
+            </a>
+            <a href="threechapters.html" class="nav-btn" aria-label="Go to Next Page">
+                <span>Something Special</span>
+                <i class="fas fa-star"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Letter Modal -->
+    <div class="letter-modal" id="letterModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeLetter()">&times;</button>
+            <div class="full-letter" id="letterContent"></div>
+            <div class="letter-signature" id="letterSignature"></div>
+        </div>
+    </div>
+
+    <script>
+        // ---------- ORIGINAL CODE – PRESERVED, NO CONTENT CHANGED ----------
+        const letters = [
+            {
+                title: "My First Promise",
+                content: `My Dearest Love,<br><br>
+                The moment our souls met, I knew my search was over. You were the answer to every silent prayer, the melody my heart had been waiting to hear. In your eyes, I found a home I never knew I needed, but now cannot imagine living without.<br><br>
+                I promise to cherish every laugh, every whisper, every glance we share. I promise to be your shelter in every storm and your sunshine on cloudy days. I promise that my love for you will grow stronger with each passing moment, deeper with every challenge we overcome together.<br><br>
+                You are my beginning, my journey, and my forever destination. With you, every moment becomes a beautiful memory, and every memory becomes a reason to love you more.`,
+                signature: "Forever Yours"
+            },
+            {
+                title: "When You Smile",
+                content: `My Beautiful One,<br><br>
+                Your smile is my favorite sunrise, painting my world with colors I never knew existed. It's the light that guides me home, the warmth that melts away all my worries. When you smile, everything feels right in the world.<br><br>
+                I remember the first time I made you laugh - truly laugh. That sound became my favorite melody, a symphony that plays in my heart every day. Your joy is contagious, your happiness is my greatest achievement.<br><br>
+                I want to spend my life being the reason behind that beautiful smile. I want to fill your days with laughter, your nights with sweet dreams, and your heart with endless love.`,
+                signature: "Your Admirer"
+            },
+            {
+                title: "Forever Ours",
+                content: `My Eternal Love,<br><br>
+                In the quiet moments, when the world sleeps and silence blankets everything, I find myself thinking of our forever. Not as some distant dream, but as the beautiful reality we're building together, one day at a time.<br><br>
+                Our love story isn't written in grand gestures or dramatic declarations. It's in the gentle way you say my name, the comfort of your presence, the safety I feel in your arms. It's in the shared glances across crowded rooms, the inside jokes only we understand, the unspoken understanding that binds our souls.<br><br>
+                I don't just love you. I choose you. Today, tomorrow, and every day after. I choose to build a life with you, to grow with you, to become better because of you.`,
+                signature: "Always & Forever"
+            }
+        ];
+        const sweetMessages = [
+            "You're my favorite notification. 💌",
+            "Thinking of you makes my heart smile. 😊",
+            "You're the missing piece I didn't know I needed. 🧩",
+            "My love for you grows stronger every day. 🌱",
+            "You're my safe place in this chaotic world. 🏡",
+            "I fall for you more with every passing moment. 💫",
+            "You make ordinary moments extraordinary. ✨",
+            "My heart recognizes yours as home. 💓",
+            "You're the best decision I never made. 🌟",
+            "I love you more than yesterday, less than tomorrow. 💕"
+        ];
+
+        document.addEventListener('DOMContentLoaded', function() {
+            createFloatingHearts();
+            initMobileNav();
+            if (typeof ScrollTrigger !== 'undefined') {
+                gsap.registerPlugin(ScrollTrigger);
+                gsap.utils.toArray('.page-section').forEach((section) => {
+                    gsap.from(section, {
+                        opacity: 0,
+                        y: 20,
+                        duration: 0.8,
+                        scrollTrigger: {
+                            trigger: section,
+                            start: "top 90%",
+                            toggleActions: "play none none reverse",
+                            once: true
+                        }
+                    });
+                });
+            }
+            window.addEventListener('scroll', updateNavDots);
+            updateNavDots();
+        });
+
+        function initMobileNav() {
+            const mobileNavBtns = document.querySelectorAll('.mobile-nav-btn');
+            mobileNavBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    mobileNavBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    const sectionId = this.getAttribute('onclick').match(/'([^']+)'/)[1];
+                    scrollToSection(sectionId);
+                });
+            });
+        }
+
+        function createFloatingHearts() {
+            const container = document.getElementById('floating-hearts');
+            if (!container) return;
+            const hearts = ['💖', '💗', '💓', '💕', '💝', '💞', '🌸', '✨', '🦋', '🌟'];
+            const heartCount = window.innerWidth < 768 ? 10 : 15;
+            for (let i = 0; i < heartCount; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'floating-heart';
+                    heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                    const startX = Math.random() * 100;
+                    const endX = Math.random() * 200 - 100;
+                    const duration = Math.random() * 10 + 12;
+                    heart.style.setProperty('--end-x', `${endX}px`);
+                    heart.style.left = `${startX}vw`;
+                    heart.style.fontSize = `${Math.random() * 14 + 12}px`;
+                    heart.style.animationDuration = `${duration}s`;
+                    heart.style.animationDelay = `${Math.random() * 5}s`;
+                    heart.style.opacity = Math.random() * 0.4 + 0.3;
+                    container.appendChild(heart);
+                    setTimeout(() => { if(heart.parentNode===container) container.removeChild(heart); }, (duration+5)*1000);
+                }, i * 200);
+            }
+            setInterval(() => { if (container.children.length < (window.innerWidth<768?12:18)) createFloatingHearts(); }, 4000);
+        }
+
+        function openLetter(index) {
+            const modal = document.getElementById('letterModal');
+            const content = document.getElementById('letterContent');
+            const signature = document.getElementById('letterSignature');
+            if (letters[index]) {
+                content.innerHTML = letters[index].content;
+                signature.textContent = letters[index].signature;
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                const mobileNavBtns = document.querySelectorAll('.mobile-nav-btn');
+                mobileNavBtns[0].classList.add('active');
+                mobileNavBtns[1].classList.remove('active');
+                mobileNavBtns[2].classList.remove('active');
+            }
+        }
+        function closeLetter() {
+            const modal = document.getElementById('letterModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                const offset = window.innerWidth < 768 ? 70 : 20;
+                window.scrollTo({ top: section.offsetTop - offset, behavior: 'smooth' });
+                updateNavDotsForSection(sectionId);
+            }
+        }
+        function updateNavDotsForSection(sectionId) {
+            const navDots = document.querySelectorAll('.nav-dot');
+            const mobileNavBtns = document.querySelectorAll('.mobile-nav-btn');
+            navDots.forEach(d => d.classList.remove('active'));
+            mobileNavBtns.forEach(b => b.classList.remove('active'));
+            if (sectionId === 'section1') { navDots[0]?.classList.add('active'); mobileNavBtns[0]?.classList.add('active'); }
+            else if (sectionId === 'section2') { navDots[1]?.classList.add('active'); mobileNavBtns[1]?.classList.add('active'); }
+            else if (sectionId === 'section3') { navDots[2]?.classList.add('active'); mobileNavBtns[2]?.classList.add('active'); }
+        }
+        function updateNavDots() {
+            const sections = document.querySelectorAll('.page-section');
+            const navDots = document.querySelectorAll('.nav-dot');
+            const mobileNavBtns = document.querySelectorAll('.mobile-nav-btn');
+            sections.forEach((section, index) => {
+                const rect = section.getBoundingClientRect();
+                const isActive = rect.top <= window.innerHeight/2 && rect.bottom >= window.innerHeight/2;
+                if (isActive && navDots[index] && mobileNavBtns[index]) {
+                    navDots.forEach(d => d.classList.remove('active'));
+                    mobileNavBtns.forEach(b => b.classList.remove('active'));
+                    navDots[index].classList.add('active');
+                    mobileNavBtns[index].classList.add('active');
+                }
+            });
+        }
+
+        function sendMessage() {
+            const input = document.querySelector('.message-input');
+            const message = input.value.trim();
+            if (message) {
+                const container = document.querySelector('.messages-container');
+                const bubble = document.createElement('div');
+                bubble.className = 'message-bubble right';
+                bubble.innerHTML = `<div class="message-time"><i class="far fa-clock"></i> Just now</div><div class="message-text"><span class="message-emoji">💌</span>${message}</div>`;
+                const inputContainer = document.querySelector('.message-input-container');
+                container.insertBefore(bubble, inputContainer);
+                gsap?.from(bubble, { opacity: 0, y: 20, duration: 0.4 });
+                input.value = '';
+                showToast('Message sent with love! 💖');
+            } else showToast('Please write a message first! ✨');
+        }
+
+        function showToast(msg) {
+            const toast = document.createElement('div');
+            toast.textContent = msg;
+            toast.style.cssText = `position:fixed; bottom:90px; left:50%; transform:translateX(-50%); background:rgba(210, 100, 130, 0.95); color:white; padding:12px 22px; border-radius:40px; z-index:10000; font-size:0.9rem; box-shadow:0 8px 20px rgba(200,80,100,0.3); backdrop-filter:blur(10px); animation:fadeInOut 3s; max-width:80%; text-align:center;`;
+            document.body.appendChild(toast);
+            setTimeout(() => { if(toast.parentNode) document.body.removeChild(toast); }, 2800);
+        }
+
+        function revealSurprise() {
+            const result = document.getElementById('surpriseResult');
+            const button = document.querySelector('.surprise-button');
+            if (button) {
+                gsap?.to(button, { opacity: 0, scale: 0.8, duration: 0.4, onComplete: () => {
+                    button.style.display = 'none';
+                    result.classList.add('active');
+                    gsap?.fromTo(result, { opacity:0, scale:0.9, y:10 }, { opacity:1, scale:1, y:0, duration:0.8, ease:"elastic.out(1,0.4)" });
+                    createMagicEffect();
+                }});
+            }
+        }
+
+        function createMagicEffect() {
+            const container = document.querySelector('.surprise-container');
+            const particleCount = window.innerWidth < 768 ? 16 : 24;
+            for (let i = 0; i < particleCount; i++) {
+                setTimeout(() => {
+                    const particle = document.createElement('div');
+                    particle.style.cssText = `position:absolute; font-size:${Math.random()*14+14}px; color:${['#ff98a8','#b48ab0','#ffb3c1'][Math.floor(Math.random()*3)]}; top:${Math.random()*100}%; left:${Math.random()*100}%; pointer-events:none; z-index:15; opacity:0;`;
+                    particle.textContent = ['✨','🌟','💫','🌸','💖'][Math.floor(Math.random()*5)];
+                    container.appendChild(particle);
+                    gsap?.to(particle, { y: -120, x: Math.random()*80-40, rotation: 360, opacity: 1, duration: 1.8, ease: "power2.out", onComplete: () => particle.remove() });
+                }, i * 80);
+            }
+            showToast('✨ Magic happening! ✨');
+        }
+
+        function addRandomMessage() {
+            const randomMessage = sweetMessages[Math.floor(Math.random() * sweetMessages.length)];
+            const container = document.querySelector('.messages-container');
+            if (container) {
+                const bubble = document.createElement('div');
+                bubble.className = 'message-bubble left';
+                bubble.innerHTML = `<div class="message-time"><i class="far fa-clock"></i> Random thought</div><div class="message-text"><span class="message-emoji">💭</span>${randomMessage}</div>`;
+                const inputContainer = document.querySelector('.message-input-container');
+                container.insertBefore(bubble, inputContainer);
+                gsap?.from(bubble, { opacity: 0, y: 20, duration: 0.5 });
+            }
+        }
+        setInterval(addRandomMessage, 30000);
+
+        document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLetter(); });
+        document.getElementById('letterModal')?.addEventListener('click', function(e) { if (e.target === this) closeLetter(); });
+        document.querySelectorAll('.love-letter-card').forEach(card => {
+            card.addEventListener('touchstart', function() { this.style.transform = 'scale(0.98)'; });
+            card.addEventListener('touchend', function() { this.style.transform = ''; });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Love Notes ❤️</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Great+Vibes&family=Parisienne&family=Sacramento&family=Caveat:wght@400;600;700&family=Playfair+Display:wght@400;600&family=Allura&family=Alex+Brush&display=swap" rel="stylesheet">
+    <style>
+        /* ---------- MOBILE-FIRST RESET ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html, body {
+            width: 100%;
+            max-width: 100vw;
+            overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: 'Caveat', 'Playfair Display', cursive, serif;
+            background: radial-gradient(circle at 20% 30%, #ffe6ec, #ffd5dd, #ffc9d4);
+            color: #571e2c;
+            line-height: 1.5;
+            padding: 6px 8px 25px;
+            min-height: 100vh;
+            position: relative;
+            font-size: 16px;
+        }
+
+        /* ---------- FLOATING HEARTS (MOBILE) ---------- */
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+            overflow: hidden;
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 20px;
+            opacity: 0.4;
+            animation: heartFloat 20s linear infinite;
+            filter: drop-shadow(0 3px 6px rgba(230, 57, 86, 0.2));
+        }
+
+        @keyframes heartFloat {
+            0% { transform: translateY(100vh) rotate(0deg) scale(0.6); opacity: 0; }
+            10% { opacity: 0.5; }
+            90% { opacity: 0.4; }
+            100% { transform: translateY(-20vh) rotate(360deg) scale(1); opacity: 0; }
+        }
+
+        /* ---------- CONTAINER ---------- */
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 5px 8px 20px;
+            position: relative;
+            z-index: 20;
+        }
+
+        /* ---------- HEADER (MOBILE) ---------- */
+        .header {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border-radius: 45px;
+            padding: 25px 15px;
+            margin-bottom: 25px;
+            border: 3px solid rgba(255, 182, 193, 0.8);
+            box-shadow: 0 12px 25px rgba(200, 70, 100, 0.15);
+        }
+
+        .header h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.2rem;
+            color: #ac2947;
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+
+        .header p {
+            font-family: 'Allura', cursive;
+            font-size: 1.4rem;
+            color: #97213b;
+            border-top: 2px solid #ffa7b9;
+            border-bottom: 2px solid #ffa7b9;
+            display: inline-block;
+            padding: 5px 18px;
+            font-weight: 600;
+        }
+
+        /* ---------- NOTES GRID (MOBILE) ---------- */
+        .notes-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            margin-bottom: 25px;
+        }
+
+        /* ---------- NOTE CARDS (MOBILE) ---------- */
+        .note-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            border-radius: 35px;
+            padding: 22px 18px;
+            border: 2px solid rgba(255, 182, 193, 0.8);
+            box-shadow: 0 10px 20px rgba(200, 70, 90, 0.1);
+            position: relative;
+            text-align: center;
+        }
+
+        .note-number {
+            position: absolute;
+            top: 15px;
+            right: 18px;
+            width: 38px;
+            height: 38px;
+            background: linear-gradient(145deg, #ff6b8b, #e63956);
+            border: 3px solid white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            box-shadow: 0 5px 12px rgba(230, 57, 86, 0.3);
+        }
+
+        .note-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .note-title {
+            font-family: 'Sacramento', cursive;
+            font-size: 1.7rem;
+            color: #a12541;
+            margin-bottom: 10px;
+            font-weight: normal;
+        }
+
+        .note-message {
+            font-family: 'Caveat', cursive;
+            font-size: 1.2rem;
+            color: #401a24;
+            font-weight: 500;
+            line-height: 1.5;
+            background: rgba(255, 245, 248, 0.6);
+            padding: 14px;
+            border-radius: 22px;
+            border: 2px dashed #ff8da1;
+        }
+
+        /* ---------- LOVE MESSAGES (MOBILE) ---------- */
+        .love-messages {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            border-radius: 45px;
+            padding: 25px 18px;
+            border: 4px double #ff9eb5;
+            margin: 25px 0;
+        }
+
+        .love-messages h2 {
+            font-family: 'Parisienne', cursive;
+            font-size: 1.2rem;
+            color: #b32e54;
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px dotted #ffa7b9;
+        }
+
+        .message-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        @media (min-width: 500px) {
+            .message-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .message-item {
+            background: white;
+            border-left: 6px solid #ff6b8b;
+            border-radius: 22px;
+            padding: 14px 16px;
+            font-size: 0.99rem;
+            color: #4a1a28;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 5px 12px rgba(230, 57, 86, 0.08);
+        }
+
+        .message-item i {
+            color: #ff4d6d;
+            font-size: 1.2rem;
+            min-width: 24px;
+            text-align: center;
+        }
+
+        /* ---------- LONG NOTES SECTION (MOBILE) ---------- */
+        .long-notes-container {
+            margin: 30px 0;
+        }
+
+        .section-title {
+            font-family: 'Sacramento', cursive;
+            font-size: 1.2rem;
+            color: #c13155;
+            text-align: center;
+            margin-bottom: 22px;
+            padding: 10px 8px;
+            border-bottom: 2px dotted #ffa7b9;
+            border-top: 2px dotted #ffa7b9;
+        }
+
+        .long-notes-vertical {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+
+        .long-note-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            border-radius: 35px;
+            padding: 25px 20px;
+            border: 2px solid rgba(255, 182, 193, 0.8);
+            box-shadow: 0 10px 20px rgba(200, 70, 90, 0.1);
+            position: relative;
+        }
+
+        .long-note-number {
+            position: absolute;
+            top: 18px;
+            right: 20px;
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(145deg, #ff6b8b, #e63956);
+            border: 3px solid white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.4rem;
+            font-weight: bold;
+            box-shadow: 0 6px 15px rgba(230, 57, 86, 0.3);
+        }
+
+        .long-note-title {
+            font-family: 'Alex Brush', cursive;
+            font-size: 1.6rem;
+            color: #9e2440;
+            margin-bottom: 15px;
+            padding-right: 55px;
+            line-height: 1.3;
+        }
+
+        .long-note-message {
+            font-family: 'Caveat', cursive;
+            font-size: 1.15rem;
+            line-height: 1.6;
+            color: #2f141c;
+            font-weight: 500;
+            background: rgba(255, 230, 240, 0.4);
+            padding: 18px;
+            border-radius: 22px;
+            border: 2px dotted #ff8da1;
+            margin-bottom: 20px;
+            word-break: break-word;
+        }
+
+        /* ---------- GIF SECTION (MOBILE) ---------- */
+        .note-gif-section {
+            margin-top: 20px;
+            padding-top: 18px;
+            border-top: 2px dashed #ffa7b9;
+            text-align: center;
+        }
+
+        .note-gif {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto;
+            border-radius: 25px;
+            border: 5px double #ffb6c1;
+            overflow: hidden;
+            box-shadow: 0 15px 25px rgba(230, 57, 86, 0.2);
+            background: linear-gradient(145deg, #ffe6ec, #ffd0d9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .note-gif img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .note-gif-caption {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.2rem;
+            color: #b82c4c;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .note-gif-caption i {
+            margin: 0 5px;
+            color: #ff4d6d;
+        }
+
+        /* ---------- TEDDY SECTION (MOBILE) ---------- */
+        .teddy-section {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            border-radius: 50px;
+            padding: 28px 18px;
+            margin: 30px 0 25px;
+            border: 4px solid #ffb6c1;
+            box-shadow: 0 15px 30px rgba(230, 57, 86, 0.15);
+            text-align: center;
+        }
+
+        .teddy-hug {
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 15px;
+            border-radius: 25px;
+            border: 6px double #ffb6c1;
+            overflow: hidden;
+            box-shadow: 0 18px 30px rgba(230, 57, 86, 0.2);
+        }
+
+        .teddy-hug img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .final-message {
+            font-family: 'Sacramento', cursive;
+            font-size: 2rem;
+            color: #be2e4a;
+            line-height: 1.2;
+        }
+
+        /* ---------- NAVIGATION BUTTONS (MOBILE) ---------- */
+        .navigation-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        @media (min-width: 500px) {
+            .navigation-buttons {
+                flex-direction: row;
+            }
+        }
+
+        .nav-btn {
+            flex: 1;
+            background: linear-gradient(145deg, #ff6b8b, #e63956);
+            border: none;
+            border-radius: 60px;
+            padding: 15px 22px;
+            color: white;
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.4rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            border: 3px solid white;
+            box-shadow: 0 12px 22px rgba(230, 57, 86, 0.3);
+            cursor: pointer;
+        }
+
+        .nav-btn:active {
+            transform: scale(0.97);
+        }
+
+        .btn-icon {
+            font-size: 1.2rem;
+        }
+
+        /* ---------- ANIMATIONS ---------- */
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+
+        /* ---------- MOBILE RESPONSIVE FONT SIZES ---------- */
+        @media (max-width: 380px) {
+            body { font-size: 15px; }
+            .header h1 { font-size: 1.9rem; }
+            .header p { font-size: 1.2rem; }
+            .note-title { font-size: 1.5rem; }
+            .note-message { font-size: 1.1rem; }
+            .long-note-title { font-size: 1.4rem; }
+            .long-note-message { font-size: 1.05rem; }
+            .final-message { font-size: 1.7rem; }
+            .nav-btn { font-size: 1.2rem; }
+        }
+
+        /* ---------- FALLBACK FOR IMAGES ---------- */
+        .note-gif:empty, .teddy-hug:empty {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: #ff6b8b;
+        }
+
+        button {
+            border: none;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-hearts" id="floatingHearts"></div>
+    
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <h1>Happy Valentine Day</h1>
+            <p>✼My Wifey G✼</p>
+        </div>
+
+        <!-- 4 LOVE NOTES -->
+        <div class="notes-grid">
+            <div class="note-card">
+                <div class="note-number">✿</div>
+                <div class="note-icon">🤍</div>
+                <h3 class="note-title">My Promises to You</h3>
+                <div class="note-message">
+                    I promise to always cherish you, to always make you smile, 
+                    to always be here for you, and to love you endlessly.
+                </div>
+            </div>
+
+            <div class="note-card">
+                <div class="note-number">✿</div>
+                <div class="note-icon">🌸</div>
+                <h3 class="note-title">What I Love About You</h3>
+                <div class="note-message">
+                    Your smile that lights up every room, your kindness that touches hearts, 
+                    your laugh that's infectious, and your love that completes me.
+                </div>
+            </div>
+
+            <div class="note-card">
+                <div class="note-number">✿</div>
+                <div class="note-icon">🌙</div>
+                <h3 class="note-title">Poetic Thoughts</h3>
+                <div class="note-message">
+                    You're my moonlight in the dark, my sunshine on cloudy days, 
+                    my ocean of calm, and my entire universe wrapped in one beautiful soul.
+                </div>
+            </div>
+
+            <div class="note-card">
+                <div class="note-number">✿</div>
+                <div class="note-icon">💗</div>
+                <h3 class="note-title">Pure & Simple</h3>
+                <div class="note-message">
+                    I love you. I adore you. I cherish you. I'm forever yours. 
+                    Four simple truths that mean everything.
+                </div>
+            </div>
+        </div>
+
+        <!-- LOVE MESSAGES -->
+        <div class="love-messages">
+            <h2>More Reasons Why You're Amazing</h2>
+            <div class="message-container">
+                <div class="message-item">
+                    <i class="fas fa-star"></i>
+                    You make ordinary moments extraordinary
+                </div>
+                <div class="message-item">
+                    <i class="fas fa-heart"></i>
+                    Your presence is my favorite place to be
+                </div>
+                <div class="message-item">
+                    <i class="fas fa-sun"></i>
+                    You bring light to my darkest days
+                </div>
+                <div class="message-item">
+                    <i class="fas fa-gem"></i>
+                    You're more precious than anything
+                </div>
+            </div>
+        </div>
+
+        <!-- LONG NOTES SECTION -->
+        <div class="long-notes-container">
+            <h2 class="section-title">✼☆𝑴𝒐𝒐𝒐𝑶𝒐𝒐𝒕𝒕𝒕𝒊𝒊𝒊𝒊 𝑩𝒉𝒂𝑳𝑼𝒖𝒖☆✼</h2>
+            <div class="long-notes-vertical">
+                <!-- LONG NOTE 1 -->
+                <div class="long-note-card">
+                    <div class="long-note-number">💌</div>
+                    <h3 class="long-note-title">مـ♡ـیری کـــ♡ـــــل کائنـــــ♡ـــات</h3>
+                    <div class="long-note-message">
+                        🌸🤍🎀😘 کچــ٘ھ لوگ ایــــٓ٘͜ــسے ہوتے ہیں ناں جــــٓ٘͜ــن کی نظر اتارنے کا دل کرتا ہے بلکل تمھـ֯ــ͝ــ֯ـارے جیسے ہوتے ہیں وہ لوگ تمــ٘ھیں پتا ہے تمھاری آنکھیں کتنی پیـٜـٜـٜـٜـٜ۬ـٰٜ۬ـٰٰٜ۬ـٰٜ۬ـٜ۬ـٜاری ہیں👀😫💗 اور تمھاری آواز تمھاری آواز مجــ٘ھے بے حد پسنــــٓ٘͜ــد ہے🙈😘❤️ تمھیں دیکھ کر تمھاری مســـٜ۬ـٰٜ۬ـٰٰٜ۬ـٰٜ۬ـٜ۬ـکراہٹ کو دیکھ کر تمھاری آنکھـ֯ــ͝ــ֯ـوں کو دیکھ کر تمھارے صــ٘دقے جانے کو جی چاہتا ہے👑 میــ٘ں عام لڑکـ֯ــ͝ــ֯ـوں کی طرح نہیں سوچتـ֯ــ͝ــ֯ـا♥️🥺❤️ میں نہیں چاہتـ֯ــ͝ــ֯ـا آپ میرے قدمــ٘وں میں بیٹھیں میں تو آپ کو اپنے دل میں بسا کر عمـ֯ــ͝ــ֯ـر بھر آپ کو اپنے سر کا تـٜـٜـٜـٜـٜ۬ـٰٜ۬ـٰٰٜ۬ـٰٜ۬ـٜ۬ـٜـٜـاج👑 بنا کر رکھــ٘نا چاہــــٓ٘͜ــتا ہوں😘❤️🌸 میـٜـٜـٜـٜـٜ۬ـٰٜ۬ـٰٰٜ۬ـٰٜ۬ـٜ۬ـٜـٜـٜری روح❤️ مـٜـٜـٜـٜـٜ۬ـٰٜ۬ـٰٰٜ۬ـٰٜ۬ـٜ۬ـٜـٜـٜیرے وجود میں تیـٜـٜـٜـٜـٜ۬ـٰٜ۬ـٰٰٜ۬ـٰٜ۬ـٜ۬ــٜرا قصہ ہے✨💋 آپ میری زنـٜـٜـٜـٜـٜ۬ـٰٜ۬ـٰٰٜ۬ـٰٜ۬ـٜ۬ـٜـٜـٜدگی🔐🌎 کا سب سے خوبـصـٜـٜـٜـٜـٜ۬ـٰٜ۬ـٰٰٜ۬ـٰٜ۬ـٜ۬ـٜورت ترین حصہ ہيـؔـں🥰💋😘 روح مـ֯ــ͝ــ֯ـن❤️ معلــــٓ٘͜ــوم نہیں آپ میرے لیــ٘ے کیا ہیں الـلہ پاک کـ֯ــ͝ــ֯ـی عطا 😭🤍🌙کردہ نعمتـــؔـوں میں سے کـــؔـوئی ایک نعمـٜـٜـٜـٜـٜ۬ـٰٜ۬ـٰٰٜ۬ـٰٜ۬ـٜ۬ــٜت🌸😍 یا پھر قبولــــٓ٘͜ــیت کی گھڑی میں مـٜـٜـٜــٜـٜـٜانگی گئی کسی دعـ֯ــ͝ــ֯ـا🤲🏻🥺❤️ کا حاصل 🥺🥰💖 یا پھر اس گنہـــؔـگار کی زنـٜـٜـٜـٜـٜ۬ـٰٜ۬ـٰٰٜ۬ـٰٜ۬ـٜ۬ـٜدگی کی 🌎🔐🐣 کی گـ֯ــ͝ــ֯ـئی کسی نیــــٓ٘͜ــکی کا صـــؔـلہ لیکن جو بھـــؔـی ہے🥰🌸 آپ کے ہونے کا احـٜـٜـٜـٜـٜ۬ـٰٜ۬ـٰٰٜ۬ـٰٜ۬ـٜ۬ـٜـٜـٜساس ہی خوبصـ֯ــ͝ــ֯ـورت ہے💫💓👀 کیونکہ آپ کے ہونے سے میری دنــــٓ٘͜ــیا خوبصـ֯ــ͝ــ֯ـورت ہے
+                    </div>
+                    <div class="note-gif-section">
+                        <div class="note-gif">
+                            <img src="gif2.gif" alt="Love GIF">
+                        </div>
+                        <div class="note-gif-caption">
+                            <i class="fa fa-heart"></i> آپکا کھسم <i class="fa fa-heart"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LONG NOTE 2 -->
+                <div class="long-note-card">
+                    <div class="long-note-number">💌</div>
+                    <h3 class="long-note-title">Mellii PaGLUuu ◕‿◕</h3>
+                    <div class="long-note-message">
+                        My lifeline!! I really never thought I would ever meet someone as special as you are to me, babyyy 🥰💕🌏 You're the first girl who made me feel in such a lovely way 🙈😍🌏 You're the first and only person with whom I have fallen in love 😘 You're the bestest thing ever happened to me 🙈😘💗 I have no words to express about my love and the bond we have 🥰💕♥️ I am so much lucky to have such a caring 🥰 loving 😘 kind and sweet partner in my life 🙈💋😍 I love how you make me happy 😊☺️ I love how you care about me sooo much 🤗❤️ I love how you sleep suddenly 🤭🤫 I love so much when you say I am enough to you 🥰♥️ And I love your voice a lottt. Sometimes more than your convincing words, just your voice makes me melt 🤤🤭😘 You make me so comfortable and you are so much supportive for everything that I share with you 🥰😌 Sometimes I really wonder why you are this much kind, not scolding me, just making me feel easy to share anything with you 😭 We fight a lot but still we solve it so soon 🤗🌹❤️ You are my peace PaGLUuu 🤗🥰❤️😘
+                    </div>
+                    <div class="note-gif-section">
+                        <div class="note-gif">
+                            <img src="gif.gif" alt="Love GIF">
+                        </div>
+                        <div class="note-gif-caption">
+                            <i class="fa fa-heart"></i> Apka Jind Bhoot <i class="fa fa-heart"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LONG NOTE 3 -->
+                <div class="long-note-card">
+                    <div class="long-note-number">💌</div>
+                    <h3 class="long-note-title">Mellii BhaLUuu 🌸🎀😘</h3>
+                    <div class="long-note-message">
+                        You Are Special ♥️ When I Say You Are Special 🤭 I Mean You Are Very Very Special To Me♥️🌸 Because I Have Always Noticed That I Am Not So Comfortable With Anyone 👀 But When It Comes To Talking With You 🥰 Sharing With You 💋♥️ I Always Feel Like 💖 I Don't Have Limits 🥺 You Always Listen To Me ✨ Thanks For Making Me Realize That I Am Special For You 😚 Important For You 😘 Thanks For Never Leaving Me 🌼 When I Say I Don't Need Anyone, I Just Need One Person In My Life And That's You 💋 Just Stay With Me 👀 Always Because You Are Very Very Special To Me 🙈
+                    </div>
+                    <div class="note-gif-section">
+                        <div class="note-gif">
+                            <img src="gif.gif" alt="Love GIF">
+                        </div>
+                        <div class="note-gif-caption">
+                            <i class="fa fa-heart"></i> Apka Husband <i class="fa fa-heart"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LONG NOTE 4 -->
+                <div class="long-note-card">
+                    <div class="long-note-number">💌</div>
+                    <h3 class="long-note-title">Maalkin G 🌸♥️😘</h3>
+                    <div class="long-note-message">
+                        Meri Shonaa 😘 Mera Dil ♥️ Mera Sakoon 🌸 Meri Zindagiii 🌎 Meri Motoo 😋 Meri Shehzadiii 💋 Meri Jaan ✨ Meri Mohtarma G 😌 Meri Sakoon-e-Jaan 😩 Meri Rahat-e-Dil 💫 Mera Bachhaaa 😘 Mera Jigar Ka Tota 💖 Meri Best Friend ♥️ Meri Chuzziii 🐥 Meri Darling 😉 Meri Subha 🌞 Meri Shaam 🌕 Had Say Zadaa Sab Say Zadaa Or Bhttt Bhttt Bhtttttt Zadaa Mohababat Hy Apsy Meri Mohtarma G 👑🦋🎀💜💝🌸🤍💕❤️😍🥰    
+                    </div>
+                    <div class="note-gif-section">
+                        <div class="note-gif">
+                            <img src="gif2.gif" alt="Love GIF">
+                        </div>
+                        <div class="note-gif-caption">
+                            <i class="fa fa-heart"></i> Apka Kabotar <i class="fa fa-heart"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TEDDY SECTION -->
+        <div class="teddy-section">
+            <div class="teddy-hug">
+                <img src="./Images/TeddyHug.jpg" alt="Teddy Bear Hug">
+            </div>
+            <div class="final-message">You're the<br>Cutest!</div>
+        </div>
+
+        <!-- NAVIGATION BUTTONS -->
+        <div class="navigation-buttons">
+            <button class="nav-btn" id="backBtn">
+                <i class="fas fa-arrow-left btn-icon"></i>
+                <span>Back To Home</span>
+            </button>
+            <button class="nav-btn" id="nextBtn">
+                <span>Need More Love</span>
+                <i class="fas fa-arrow-right btn-icon"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // ---------- JAVASCRIPT - ERROR FREE ----------
+        
+        function createFloatingHearts() {
+            const container = document.getElementById('floatingHearts');
+            if (!container) return;
+            
+            container.innerHTML = '';
+            const hearts = ['❤️', '💖', '💕', '💗', '💓', '💘', '💝'];
+            
+            for (let i = 0; i < 12; i++) {
+                setTimeout(function() {
+                    const heart = document.createElement('div');
+                    heart.className = 'floating-heart';
+                    heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+                    heart.style.left = Math.random() * 100 + '%';
+                    heart.style.fontSize = (14 + Math.random() * 16) + 'px';
+                    heart.style.animationDelay = Math.random() * 5 + 's';
+                    container.appendChild(heart);
+                    
+                    setTimeout(function() {
+                        if (heart.parentNode) heart.remove();
+                    }, 20000);
+                }, i * 120);
+            }
+        }
+
+        function goBack() {
+            window.location.href = 'index.html';
+        }
+
+        function goNext() {
+            window.location.href = 'love2.html';
+        }
+
+        function handleImageError(img) {
+            img.style.display = 'none';
+            const parent = img.parentNode;
+            if (parent) {
+                const span = document.createElement('span');
+                span.style.fontSize = '2.5rem';
+                span.innerHTML = '🧸💗';
+                parent.appendChild(span);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            createFloatingHearts();
+            
+            const backBtn = document.getElementById('backBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            if (backBtn) backBtn.addEventListener('click', goBack);
+            if (nextBtn) nextBtn.addEventListener('click', goNext);
+            
+            const images = document.querySelectorAll('.note-gif img, .teddy-hug img');
+            images.forEach(function(img) {
+                img.onerror = function() { handleImageError(this); };
+            });
+            
+            let lastTouch = 0;
+            document.addEventListener('touchend', function(e) {
+                const now = Date.now();
+                if (now - lastTouch <= 200) e.preventDefault();
+                lastTouch = now;
+            }, false);
+        });
+    </script>
+</body>
+</html>

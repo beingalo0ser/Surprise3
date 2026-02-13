@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>Forever & Always 💖</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== ULTRA ENHANCEMENT – NEW NOTES CONTAINER ADDED ===== */
+        /* All previous visuals preserved – text sizes decreased – new container above love letter */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', 'Segoe UI', 'Helvetica Neue', sans-serif;
+            background: radial-gradient(circle at 0% 20%, #fff5fb 0%, #ffe9f2 35%, #ffdfea 70%, #ffd5e4 100%);
+            background-attachment: fixed;
+            color: #4a1e3a;
+            line-height: 1.55;
+            min-height: 100vh;
+            padding: 0;
+            overflow-x: hidden;
+            position: relative;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* ===== MULTI-LAYERED CELESTIAL VEIL ===== */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 15% 25%, rgba(255, 200, 225, 0.2) 0%, transparent 45%),
+                radial-gradient(circle at 85% 60%, rgba(255, 180, 210, 0.18) 0%, transparent 50%),
+                radial-gradient(circle at 45% 80%, rgba(255, 190, 220, 0.15) 0%, transparent 55%),
+                radial-gradient(circle at 70% 15%, rgba(255, 170, 200, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 30% 70%, rgba(255, 210, 230, 0.2) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 2;
+            mix-blend-mode: overlay;
+        }
+
+        /* soft sparkle overlay */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 10% 20%, #fff, transparent),
+                radial-gradient(2px 2px at 25% 60%, #ffe6f0, transparent),
+                radial-gradient(3px 3px at 70% 45%, #ffd9e6, transparent),
+                radial-gradient(2px 2px at 85% 80%, #fff0f5, transparent),
+                radial-gradient(3px 3px at 40% 30%, #ffeef2, transparent),
+                radial-gradient(2px 2px at 90% 15%, #ffe0ec, transparent),
+                radial-gradient(3px 3px at 15% 90%, #fff5f8, transparent),
+                radial-gradient(2px 2px at 55% 70%, #ffe8f0, transparent);
+            background-size: 300% 300%;
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: 3;
+            animation: starDrift 45s infinite alternate;
+        }
+
+        @keyframes starDrift {
+            0% { background-position: 0% 0%; opacity: 0.2; }
+            50% { opacity: 0.35; }
+            100% { background-position: 20% 20%; opacity: 0.2; }
+        }
+
+        /* ===== MAIN CONTAINER – SACRED VESSEL ===== */
+        .container {
+            max-width: 600px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 16px 18px 40px;
+            position: relative;
+            z-index: 30;
+            background: rgba(255, 248, 252, 0.3);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-radius: 72px 36px 72px 36px;
+            box-shadow: 
+                0 0 100px rgba(255, 130, 170, 0.25),
+                0 0 0 1px rgba(255, 200, 225, 0.5),
+                inset 0 0 40px rgba(255, 240, 245, 0.6);
+            border: 1px solid rgba(255, 220, 240, 0.6);
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .container:hover {
+            background: rgba(255, 240, 250, 0.4);
+            box-shadow: 
+                0 0 130px rgba(255, 110, 160, 0.35),
+                0 0 0 2px rgba(255, 200, 230, 0.7),
+                inset 0 0 60px rgba(255, 235, 245, 0.8);
+            border-color: rgba(255, 190, 225, 0.9);
+            transform: translateY(-2px);
+        }
+
+        /* ===== HEADER – CELESTIAL THRONE (TEXT SIZE DECREASED) ===== */
+        .header {
+            text-align: center;
+            padding: 38px 22px 28px;
+            margin-bottom: 28px;
+            background: rgba(255, 245, 250, 0.75);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-radius: 150px 150px 80px 80px;
+            border: 1.8px solid rgba(255, 215, 235, 0.8);
+            box-shadow: 
+                0 25px 45px rgba(160, 90, 130, 0.2),
+                inset 0 0 50px rgba(255, 235, 245, 0.9),
+                inset 0 0 0 2px rgba(255, 255, 255, 0.6);
+            position: relative;
+            overflow: hidden;
+            transform: translateY(0);
+            transition: all 0.5s ease;
+        }
+
+        .header:hover {
+            background: rgba(255, 240, 250, 0.9);
+            border-color: rgba(255, 170, 210, 0.95);
+            box-shadow: 
+                0 30px 55px rgba(180, 80, 130, 0.3),
+                inset 0 0 70px rgba(255, 225, 240, 1),
+                inset 0 0 0 4px rgba(255, 255, 255, 0.8);
+            transform: translateY(-4px);
+        }
+
+        .header::before {
+            content: '💫✨';
+            position: absolute;
+            top: -10px;
+            left: 0;
+            width: 100%;
+            font-size: 2.5rem;
+            opacity: 0.15;
+            animation: shimmerGlide 18s infinite linear;
+            pointer-events: none;
+        }
+
+        .header::after {
+            content: '✨💫';
+            position: absolute;
+            bottom: -10px;
+            right: 0;
+            width: 100%;
+            font-size: 2.5rem;
+            opacity: 0.15;
+            animation: shimmerGlide 20s infinite reverse;
+            pointer-events: none;
+        }
+
+        @keyframes shimmerGlide {
+            0% { transform: translateX(-100%) rotate(0deg); }
+            100% { transform: translateX(100%) rotate(20deg); }
+        }
+
+        .header h1 {
+            font-family: 'Papyrus', 'Dancing Script', 'cursive';
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #b32b55;
+            text-shadow: 
+                4px 4px 0 rgba(255, 200, 220, 0.5),
+                6px 6px 25px rgba(255, 80, 140, 0.4),
+                0 0 40px rgba(255, 150, 200, 0.7);
+            margin-bottom: 14px;
+            letter-spacing: 2px;
+            animation: divineHeartbeat 3.4s infinite ease-in-out;
+            word-break: break-word;
+            position: relative;
+            z-index: 20;
+            transform-origin: center;
+        }
+
+        @keyframes divineHeartbeat {
+            0%, 100% { 
+                transform: scale(1); 
+                text-shadow: 4px 4px 0 rgba(255, 200, 220, 0.5), 6px 6px 25px rgba(255, 80, 140, 0.4), 0 0 40px rgba(255, 150, 200, 0.7);
+            }
+            50% { 
+                transform: scale(1.04); 
+                text-shadow: 
+                    6px 6px 0 rgba(255, 180, 210, 0.7),
+                    8px 8px 35px rgba(255, 50, 130, 0.6),
+                    0 0 60px rgba(255, 100, 180, 0.9),
+                    0 0 90px rgba(255, 200, 230, 0.8);
+            }
+        }
+
+        .header p {
+            font-size: 0.85rem;
+            font-family: 'Lucida Handwriting', 'Quicksand', cursive;
+            font-weight: 600;
+            color: #5a2a42;
+            max-width: 540px;
+            margin: 0 auto;
+            line-height: 1.7;
+            background: rgba(255, 245, 252, 0.9);
+            backdrop-filter: blur(16px);
+            padding: 14px 24px;
+            border-radius: 150px;
+            box-shadow: 
+                0 12px 28px rgba(170, 80, 120, 0.2),
+                inset 0 2px 15px rgba(255, 255, 255, 0.9),
+                inset 0 0 0 1px rgba(255, 230, 240, 0.9);
+            border: 0.8px solid rgba(255, 200, 225, 1);
+            position: relative;
+            z-index: 20;
+        }
+
+        /* ===== TIMELINE – ETERNAL CASCADE (TEXT SIZE DECREASED) ===== */
+        .timeline {
+            position: relative;
+            margin: 35px 0 30px;
+            padding: 20px 0;
+            width: 100%;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 28px;
+            top: 30px;
+            bottom: 30px;
+            width: 5px;
+            background: linear-gradient(to bottom, 
+                #ff5e7e, 
+                #ff8aa7, 
+                #ffa5bc, 
+                #ffb6c9, 
+                #d9a0c0, 
+                #c28bb0, 
+                #ff99bb);
+            border-radius: 10px;
+            box-shadow: 
+                0 0 20px #ff6f91,
+                0 0 45px #ff9eb5,
+                0 0 70px #ffb6c1;
+            opacity: 0.95;
+            z-index: 10;
+            animation: sacredRibbon 4s infinite;
+        }
+
+        @keyframes sacredRibbon {
+            0%, 100% { opacity: 0.85; box-shadow: 0 0 20px #ff6f91, 0 0 45px #ff9eb5; }
+            50% { opacity: 1; box-shadow: 0 0 35px #ff4d6d, 0 0 70px #ff8da1, 0 0 100px #ffb6c1; }
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 32px 0 35px 52px !important;
+            width: auto !important;
+            padding: 22px 24px;
+            background: rgba(255, 251, 253, 0.95);
+            backdrop-filter: blur(28px);
+            -webkit-backdrop-filter: blur(28px);
+            border-radius: 50px 25px 55px 25px;
+            box-shadow: 
+                0 22px 42px rgba(140, 70, 100, 0.2),
+                inset 0 0 35px rgba(255, 240, 245, 0.9),
+                inset 0 0 0 2px rgba(255, 255, 255, 0.7);
+            transition: all 0.6s cubic-bezier(0.18, 0.89, 0.32, 1.3);
+            opacity: 0;
+            transform: translateY(35px);
+            border: 1.5px solid rgba(255, 200, 230, 1);
+            border-left: 12px solid #ff6f91;
+            word-break: break-word;
+            display: block;
+            clear: both;
+            z-index: 20;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-10px) scale(1.03);
+            border-left-width: 14px;
+            border-left-color: #ff365a;
+            background: rgba(255, 245, 250, 1);
+            box-shadow: 
+                0 35px 55px rgba(160, 60, 100, 0.3),
+                inset 0 0 50px rgba(255, 230, 245, 1),
+                inset 0 0 0 4px rgba(255, 255, 255, 0.9);
+        }
+
+        .timeline-date {
+            font-family: 'Dancing Script', 'cursive';
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #a13557;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            letter-spacing: 1px;
+            text-shadow: 0 4px 18px rgba(255, 90, 150, 0.35);
+        }
+
+        .timeline-text {
+            font-size: 0.88rem;
+            font-family: 'Georgia', 'Quicksand', serif;
+            line-height: 1.65;
+            color: #36212b;
+            font-weight: 550;
+            opacity: 1;
+            word-break: break-word;
+        }
+
+        /* ===== FOREVER SECTION – SACRED COVENANT (TEXT SIZE DECREASED) ===== */
+        .forever-section {
+            text-align: center;
+            padding: 48px 28px;
+            background: rgba(255, 245, 252, 0.88);
+            backdrop-filter: blur(32px);
+            -webkit-backdrop-filter: blur(32px);
+            border-radius: 120px 45px 120px 45px;
+            margin: 75px 0 70px;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: scale(0.94);
+            animation: divineManifest 1.4s ease-out 0.2s forwards;
+            border: 2.5px solid rgba(255, 210, 235, 0.95);
+            box-shadow: 
+                0 40px 65px rgba(140, 70, 120, 0.25),
+                inset 0 0 70px rgba(255, 235, 245, 0.9),
+                inset 0 0 0 3px rgba(255, 255, 255, 0.7);
+            width: 100%;
+        }
+
+        @keyframes divineManifest {
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .forever-section::before {
+            content: '💖💗💓';
+            position: absolute;
+            font-size: 22rem;
+            opacity: 0.03;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            filter: blur(25px) drop-shadow(0 0 30px #ff8aa8);
+            animation: eternalRadiance 7s infinite;
+            pointer-events: none;
+        }
+
+        @keyframes eternalRadiance {
+            0%, 100% { opacity: 0.03; transform: translate(-50%, -50%) scale(1); filter: blur(25px); }
+            50% { opacity: 0.06; transform: translate(-50%, -50%) scale(1.08); filter: blur(20px); }
+        }
+
+        .forever-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 40%, rgba(255, 220, 240, 0.35) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        .forever-title {
+            font-family: 'Segoe Script', 'Dancing Script', cursive;
+            font-size: 1.9rem;
+            font-weight: 900;
+            color: #c43362;
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 20;
+            text-shadow: 
+                0 8px 25px rgba(255, 90, 160, 0.5),
+                0 0 45px rgba(255, 200, 230, 0.8);
+            word-break: break-word;
+        }
+
+        .forever-text {
+            font-size: 0.88rem;
+            font-family: 'Lucida Handwriting', 'Quicksand', cursive;
+            font-weight: 600;
+            line-height: 1.75;
+            color: #452231;
+            max-width: 520px;
+            margin: 0 auto 20px;
+            position: relative;
+            z-index: 20;
+            padding: 14px 20px;
+            word-break: break-word;
+            background: rgba(255, 250, 250, 0.4);
+            border-radius: 60px;
+            backdrop-filter: blur(6px);
+            box-shadow: inset 0 2px 10px rgba(255, 255, 255, 0.8);
+        }
+
+        /* ===== NEW! LOVELY NOTES CONTAINER – 5 ONE-LINE NOTES ===== */
+        /* Placed above love letter, matching page content, same romantic style */
+        .lovely-notes {
+            background: rgba(255, 245, 250, 0.85);
+            backdrop-filter: blur(28px);
+            -webkit-backdrop-filter: blur(28px);
+            border-radius: 70px 30px 70px 30px;
+            padding: 32px 28px;
+            margin: 50px auto 35px;
+            max-width: 580px;
+            box-shadow: 
+                0 30px 55px rgba(150, 70, 120, 0.2),
+                inset 0 0 50px rgba(255, 235, 245, 0.8),
+                inset 0 0 0 3px rgba(255, 255, 255, 0.7);
+            position: relative;
+            overflow: hidden;
+            border: 1.8px solid rgba(255, 200, 230, 0.9);
+            border-bottom-width: 8px;
+            border-bottom-color: #ff9eb5;
+            width: 100%;
+            transition: all 0.4s ease;
+        }
+
+        .lovely-notes:hover {
+            transform: translateY(-6px);
+            background: rgba(255, 240, 250, 0.95);
+            border-bottom-color: #ff6f91;
+            box-shadow: 
+                0 40px 70px rgba(160, 60, 120, 0.3),
+                inset 0 0 70px rgba(255, 230, 245, 0.9);
+        }
+
+        .lovely-notes::before {
+            content: '💕💞';
+            position: absolute;
+            top: 5px;
+            left: 15px;
+            font-size: 2.2rem;
+            opacity: 0.12;
+            transform: rotate(-10deg);
+            animation: notesFloat 8s infinite;
+            filter: drop-shadow(0 0 15px #ffa5b9);
+        }
+
+        .lovely-notes::after {
+            content: '💖💗';
+            position: absolute;
+            bottom: 5px;
+            right: 15px;
+            font-size: 2.2rem;
+            opacity: 0.12;
+            transform: rotate(10deg);
+            animation: notesFloat 9s infinite reverse;
+            filter: drop-shadow(0 0 15px #ff8da1);
+        }
+
+        @keyframes notesFloat {
+            0%, 100% { transform: rotate(-10deg) translateY(0); }
+            50% { transform: rotate(-5deg) translateY(-10px); }
+        }
+
+        .notes-title {
+            font-family: 'Dancing Script', 'cursive';
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #b34167;
+            text-align: center;
+            margin-bottom: 24px;
+            letter-spacing: 1.5px;
+            text-shadow: 0 4px 15px rgba(255, 90, 150, 0.3);
+            position: relative;
+            z-index: 15;
+        }
+
+        .notes-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            position: relative;
+            z-index: 15;
+        }
+
+        .note-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 0.92rem;
+            font-family: 'Lucida Handwriting', 'Quicksand', cursive;
+            color: #4a2a3a;
+            background: rgba(255, 250, 252, 0.6);
+            backdrop-filter: blur(4px);
+            padding: 12px 20px;
+            border-radius: 60px;
+            box-shadow: inset 0 1px 8px rgba(255, 255, 255, 0.8), 0 4px 8px rgba(200, 100, 140, 0.1);
+            border: 0.5px solid rgba(255, 210, 230, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        .note-item:hover {
+            background: rgba(230, 137, 160, 0.8);
+            transform: translateX(6px);
+            border-color: rgba(255, 150, 190, 0.9);
+        }
+
+        .note-icon {
+            font-size: 1.4rem;
+            filter: drop-shadow(0 2px 8px rgba(255, 100, 150, 0.3));
+        }
+
+        .note-text {
+            line-height: 1.5;
+            font-weight: 550;
+        }
+
+        /* ===== LOVE LETTER – ETERNAL KEEPSAKE (TEXT SIZE DECREASED) ===== */
+        .love-letter {
+            background: rgba(255, 251, 250, 0.96);
+            backdrop-filter: blur(35px);
+            -webkit-backdrop-filter: blur(35px);
+            border-radius: 70px 35px 70px 35px;
+            padding: 42px 32px;
+            margin: 35px auto 55px; /* reduced top margin since notes container above */
+            max-width: 580px;
+            box-shadow: 
+                0 45px 75px rgba(150, 70, 120, 0.3),
+                inset 0 0 70px rgba(255, 240, 250, 1),
+                inset 0 0 0 4px rgba(255, 255, 255, 0.9);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.6s cubic-bezier(0.22, 0.89, 0.32, 1.4);
+            border: 2px solid rgba(255, 200, 230, 1);
+            border-bottom-width: 10px;
+            border-bottom-color: #ff7a9e;
+            width: 100%;
+        }
+
+        .love-letter:hover {
+            transform: translateY(-14px) scale(1.03);
+            box-shadow: 
+                0 55px 90px rgba(170, 60, 120, 0.4),
+                inset 0 0 90px rgba(255, 230, 250, 1),
+                inset 0 0 0 6px rgba(255, 255, 255, 1);
+            border-bottom-color: #ff3b6f;
+            border-bottom-width: 12px;
+        }
+
+        .love-letter::before {
+            content: '💞💘💝';
+            position: absolute;
+            bottom: 10px;
+            left: 15px;
+            font-size: 3.2rem;
+            opacity: 0.12;
+            transform: rotate(-15deg);
+            animation: sacredFloat 9s infinite;
+            filter: drop-shadow(0 0 15px #ffa5b9);
+        }
+
+        .love-letter::after {
+            content: '💖💗💓';
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 3rem;
+            opacity: 0.12;
+            transform: rotate(15deg);
+            animation: sacredFloat 10s infinite reverse;
+            filter: drop-shadow(0 0 15px #ff8da1);
+        }
+
+        @keyframes sacredFloat {
+            0%, 100% { transform: rotate(-15deg) translateY(0); }
+            50% { transform: rotate(-8deg) translateY(-18px); }
+        }
+
+        .letter-seal {
+            position: absolute;
+            top: -22px;
+            right: -18px;
+            width: 95px;
+            height: 95px;
+            background: radial-gradient(circle at 45% 45%, #ff4d6d, #ff6f91);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.2rem;
+            color: white;
+            box-shadow: 
+                0 20px 40px rgba(255, 20, 80, 0.6),
+                0 0 0 6px rgba(255, 255, 255, 0.7);
+            z-index: 45;
+            border: 4px solid #fff5f7;
+            animation: divineSeal 2.8s infinite;
+        }
+
+        @keyframes divineSeal {
+            0%, 100% { 
+                box-shadow: 0 20px 40px rgba(255, 20, 80, 0.6), 0 0 0 6px rgba(255, 255, 255, 0.7);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 30px 60px rgba(255, 0, 60, 0.8), 0 0 0 12px rgba(255, 255, 255, 0.9);
+                transform: scale(1.08);
+            }
+        }
+
+        .letter-content {
+            font-family: 'Lucida Handwriting', 'Dancing Script', cursive;
+            font-size: 1.0rem;
+            font-weight: 650;
+            line-height: 1.9;
+            color: #3a1e2a;
+            text-align: center;
+            position: relative;
+            z-index: 30;
+            background: rgba(255, 253, 252, 0.7);
+            padding: 20px 18px;
+            border-radius: 50px;
+            word-break: break-word;
+            text-shadow: 0 2px 15px rgba(255, 150, 190, 0.35);
+            backdrop-filter: blur(4px);
+            box-shadow: inset 0 0 25px rgba(255, 220, 240, 0.7);
+        }
+
+        /* ===== BUTTONS – SACRED PORTALS (TEXT SIZE DECREASED) ===== */
+        .dual-button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 32px;
+            margin: 70px 0 45px;
+            padding: 25px 0;
+            position: relative;
+            z-index: 60;
+            width: 100%;
+        }
+
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            padding: 22px 38px;
+            font-size: 1.05rem;
+            font-family: 'Times New Roman', 'Quicksand', serif;
+            font-weight: 900;
+            background: linear-gradient(145deg, #ff6b8b, #ff3a62);
+            color: white;
+            border: none;
+            border-radius: 200px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.55s cubic-bezier(0.18, 0.89, 0.32, 1.4);
+            box-shadow: 
+                0 30px 55px rgba(200, 40, 90, 0.5),
+                0 0 0 3px rgba(255, 255, 255, 0.5),
+                0 0 30px rgba(255, 100, 150, 0.6);
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+            letter-spacing: 2px;
+            border: 2px solid rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            word-break: break-word;
+        }
+
+        .final-btn {
+            background: linear-gradient(145deg, #ff6b8b, #ff3a62);
+            box-shadow: 
+                0 30px 55px rgba(200, 40, 90, 0.5),
+                0 0 0 3px rgba(255, 255, 255, 0.5),
+                0 0 30px rgba(255, 100, 150, 0.6);
+        }
+
+        .nav-btn::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            left: -20%;
+            width: 140%;
+            height: 160%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.7s;
+        }
+
+        .nav-btn:hover::before {
+            opacity: 0.6;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-12px) scale(1.08);
+            box-shadow: 
+                0 45px 75px rgba(220, 20, 70, 0.7),
+                0 0 0 6px rgba(255, 255, 255, 0.8),
+                0 0 60px rgba(255, 80, 130, 0.8);
+        }
+
+        .nav-btn i {
+            font-size: 1.5rem;
+            filter: drop-shadow(0 6px 10px rgba(0,0,0,0.2));
+        }
+
+        /* ===== FLOATING ELEMENTS – ULTRA-ENCHANTED GARDEN ===== */
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+            overflow: hidden;
+        }
+
+        .floating-element {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.5;
+            z-index: 5;
+            animation: divineDrift 32s infinite ease-in-out;
+            pointer-events: none;
+            filter: drop-shadow(0 0 20px rgba(255, 80, 150, 0.6)) blur(0.5px);
+            text-shadow: 0 0 25px rgba(255, 200, 230, 0.9);
+        }
+
+        @keyframes divineDrift {
+            0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+            25% { transform: translate(35px, -55px) rotate(18deg) scale(1.1); }
+            50% { transform: translate(-25px, 45px) rotate(-12deg) scale(0.95); }
+            75% { transform: translate(20px, -25px) rotate(8deg) scale(1.05); }
+            100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+        }
+
+        .floating-element-extra {
+            position: absolute;
+            font-size: 1.9rem;
+            opacity: 0.45;
+            z-index: 5;
+            animation: sacredFloatAlt 38s infinite alternate;
+            pointer-events: none;
+            filter: drop-shadow(0 0 25px #ffa7c2);
+        }
+
+        @keyframes sacredFloatAlt {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-120px) rotate(360deg); }
+        }
+
+        /* ===== HEART CURSOR – SACRED DESKTOP GRACE ===== */
+        .heart-cursor {
+            position: fixed;
+            width: 44px;
+            height: 44px;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.85;
+            filter: drop-shadow(0 0 28px #ff2a4a) drop-shadow(0 0 50px #ff8da1);
+            font-size: 44px;
+            text-align: center;
+            line-height: 44px;
+            display: none;
+        }
+
+        @media (hover: hover) and (pointer: fine) {
+            .heart-cursor { display: block; }
+        }
+
+        /* ===== SPARKLES – CELESTIAL LOVE DUST ===== */
+        .sparkle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: radial-gradient(circle, #fff9fb, #ffa5c3, #ffd9e6);
+            border-radius: 50%;
+            animation: divineTwinkle 2.2s infinite;
+            pointer-events: none;
+            z-index: 70;
+            box-shadow: 
+                0 0 25px #ff7a9e,
+                0 0 55px #ffb6c9,
+                0 0 80px #ffe6f0;
+        }
+
+        @keyframes divineTwinkle {
+            0%, 100% { opacity: 0; transform: scale(0.3); }
+            50% { opacity: 1; transform: scale(1.4); }
+        }
+
+        /* ===== SCROLL REVEAL – SACRED UNFOLDING ===== */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.18, 0.89, 0.32, 1.2);
+        }
+
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== ETERNAL ROSE – BLESSED SCROLL ANCHOR ===== */
+        .eternal-rose {
+            position: fixed;
+            bottom: 28px;
+            right: 22px;
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(145deg, #ff668a, #ff2e5a);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 100;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 
+                0 20px 45px rgba(255, 20, 70, 0.6),
+                0 0 0 5px rgba(255, 255, 255, 0.7),
+                0 0 50px rgba(255, 60, 120, 0.6);
+            border: 3px solid rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            transition: 0.4s;
+            animation: roseSanctified 2.6s infinite;
+        }
+
+        @keyframes roseSanctified {
+            0%, 100% { 
+                box-shadow: 0 20px 45px rgba(255, 20, 70, 0.6), 0 0 0 5px rgba(255, 255, 255, 0.7), 0 0 50px rgba(255, 60, 120, 0.6);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 30px 65px rgba(255, 0, 50, 0.8), 0 0 0 8px rgba(255, 255, 255, 0.9), 0 0 80px rgba(255, 20, 100, 0.9);
+                transform: scale(1.1);
+            }
+        }
+
+        /* ===== MOBILE PERFECTION ===== */
+        @media (max-width: 500px) {
+            .container { padding: 12px 16px 35px; }
+            .header h1 { font-size: 2.0rem; }
+            .header p { font-size: 0.8rem; padding: 12px 20px; }
+            .timeline-item { margin-left: 45px !important; padding: 20px; }
+            .timeline::before { left: 24px; }
+            .timeline-date { font-size: 1.4rem; }
+            .timeline-text { font-size: 0.84rem; }
+            .forever-title { font-size: 1.7rem; }
+            .forever-text { font-size: 0.84rem; padding: 12px 16px; }
+            .lovely-notes { padding: 28px 22px; margin: 45px auto 30px; }
+            .notes-title { font-size: 1.4rem; }
+            .note-item { font-size: 0.86rem; padding: 10px 16px; }
+            .note-icon { font-size: 1.2rem; }
+            .letter-content { font-size: 0.92rem; padding: 18px; }
+            .nav-btn { padding: 20px 30px; font-size: 0.98rem; max-width: 340px; }
+        }
+
+        @media (max-width: 380px) {
+            .header h1 { font-size: 1.8rem; }
+            .timeline-item { margin-left: 40px !important; padding: 18px; }
+            .timeline-date { font-size: 1.3rem; }
+            .forever-title { font-size: 1.5rem; }
+            .notes-title { font-size: 1.3rem; }
+            .note-item { font-size: 0.82rem; }
+            .letter-content { font-size: 0.88rem; }
+            .nav-btn { padding: 18px 26px; font-size: 0.92rem; }
+        }
+
+        /* ABSOLUTE VISIBILITY INSURANCE */
+        .timeline-item, .forever-section, .lovely-notes, .love-letter, .header, .container {
+            overflow: visible;
+            visibility: visible;
+        }
+
+        body, html {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+
+        /* SACRED FILIGREE PATTERN */
+        .container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(#ffb6c1 1.5px, transparent 1.5px),
+                radial-gradient(#ffc0cb 1px, transparent 1px);
+            background-size: 35px 35px, 25px 25px;
+            background-position: 0 0, 18px 18px;
+            opacity: 0.06;
+            pointer-events: none;
+            z-index: -1;
+            border-radius: inherit;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEART CURSOR – SACRED SYMBOL -->
+    <div class="heart-cursor">❤️</div>
+
+    <!-- ===== ULTRA-ENCHANTED FLOATING ELEMENTS – HEAVENLY GARDEN ===== -->
+    <div class="floating-elements">
+        <div class="floating-element" style="top: 3%; left: 2%; animation-delay: 0s; animation-duration: 28s;">💖</div>
+        <div class="floating-element" style="top: 12%; left: 88%; animation-delay: 1.8s; animation-duration: 32s;">🌸</div>
+        <div class="floating-element" style="top: 68%; left: 5%; animation-delay: 3.2s; animation-duration: 34s;">✨</div>
+        <div class="floating-element" style="top: 92%; left: 91%; animation-delay: 5.5s; animation-duration: 30s;">🦋</div>
+        <div class="floating-element" style="top: 38%; left: 95%; animation-delay: 7s; animation-duration: 36s;">💕</div>
+        <div class="floating-element" style="top: 22%; left: 12%; animation-delay: 2.4s; animation-duration: 33s;">🌹</div>
+        <div class="floating-element" style="top: 55%; left: 78%; animation-delay: 6.2s; animation-duration: 29s;">💗</div>
+        <div class="floating-element" style="top: 78%; left: 18%; animation-delay: 4.8s; animation-duration: 38s;">💓</div>
+        <div class="floating-element" style="top: 45%; left: 15%; animation-delay: 8.2s; animation-duration: 31s;">🌷</div>
+        <div class="floating-element" style="top: 82%; left: 68%; animation-delay: 9.5s; animation-duration: 35s;">💞</div>
+        <div class="floating-element" style="top: 15%; left: 45%; animation-delay: 11s; animation-duration: 37s;">🌺</div>
+        <div class="floating-element" style="top: 62%; left: 88%; animation-delay: 12.5s; animation-duration: 32s;">💘</div>
+        <div class="floating-element" style="top: 88%; left: 35%; animation-delay: 14s; animation-duration: 39s;">💝</div>
+        <div class="floating-element" style="top: 28%; left: 72%; animation-delay: 15.8s; animation-duration: 34s;">🌟</div>
+        <div class="floating-element" style="top: 72%; left: 52%; animation-delay: 17.2s; animation-duration: 36s;">💐</div>
+        <div class="floating-element" style="top: 48%; left: 38%; animation-delay: 19s; animation-duration: 33s;">🕊️</div>
+        <div class="floating-element" style="top: 8%; left: 62%; animation-delay: 20.5s; animation-duration: 31s;">💫</div>
+        <div class="floating-element" style="top: 95%; left: 58%; animation-delay: 22s; animation-duration: 38s;">✨</div>
+    </div>
+
+    <!-- EXTRA LAYER OF FLOATING ELEMENTS – INFINITE LOVE -->
+    <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 4;">
+        <div style="position: absolute; top: 8%; left: 18%; font-size: 2rem; opacity: 0.4; animation: divineDrift 40s infinite; filter: drop-shadow(0 0 20px #ffa5c2);">💗</div>
+        <div style="position: absolute; top: 75%; left: 82%; font-size: 2.2rem; opacity: 0.35; animation: divineDrift 44s infinite reverse; filter: drop-shadow(0 0 25px #ffb6d9);">💖</div>
+        <div style="position: absolute; top: 33%; left: 58%; font-size: 1.9rem; opacity: 0.45; animation: sacredFloatAlt 42s infinite; filter: drop-shadow(0 0 20px #ff9eb5);">🌸</div>
+        <div style="position: absolute; top: 18%; left: 32%; font-size: 2.1rem; opacity: 0.4; animation: divineDrift 37s infinite; filter: drop-shadow(0 0 22px #ff8aa8);">🌹</div>
+        <div style="position: absolute; top: 52%; left: 12%; font-size: 1.8rem; opacity: 0.5; animation: sacredFloatAlt 48s infinite; filter: drop-shadow(0 0 20px #ffc0cb);">💕</div>
+        <div style="position: absolute; top: 63%; left: 95%; font-size: 2rem; opacity: 0.4; animation: divineDrift 35s infinite; filter: drop-shadow(0 0 25px #ffb3c6);">🦋</div>
+        <div style="position: absolute; top: 41%; left: 75%; font-size: 2.2rem; opacity: 0.35; animation: sacredFloatAlt 45s infinite; filter: drop-shadow(0 0 28px #ffa7c2);">💓</div>
+        <div style="position: absolute; top: 86%; left: 25%; font-size: 1.9rem; opacity: 0.45; animation: divineDrift 39s infinite; filter: drop-shadow(0 0 22px #ffb0c3);">🌷</div>
+    </div>
+
+    <div class="container">
+        <!-- HEADER – ORIGINAL WORDS, SACRED AND ETERNAL -->
+        <div class="header">
+            <h1>I'm Forever Yours 💕</h1>
+            <p>Lets Begin A Journey Of Love That Never Ends, Filled With Beautiful Moments And Endless Affection</p>
+        </div>
+
+        <!-- TIMELINE – ORIGINAL POETRY, DIVINE -->
+        <div class="timeline">
+            <div class="timeline-item scroll-reveal">
+                <div class="timeline-content">
+                    <div class="timeline-date">💌 Our Beginning</div>
+                    <div class="timeline-text">
+                        The moment our souls connected, I knew you were the one. Your smile became my sunrise, 
+                        your voice my favorite melody. Every day with you feels like a beautiful dream come true.
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item scroll-reveal">
+                <div class="timeline-content">
+                    <div class="timeline-date">🌸 Growing Together</div>
+                    <div class="timeline-text">
+                        Through laughter and tears, we've grown stronger together. Your love has been my anchor, 
+                        your support my strength. Every challenge we face only brings us closer, and every moment 
+                        shared becomes a precious memory.
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item scroll-reveal">
+                <div class="timeline-content">
+                    <div class="timeline-date">✨ Our Present</div>
+                    <div class="timeline-text">
+                        Right here, right now, my heart beats only for you. Your presence fills my world with 
+                        colors I never knew existed. You're not just my love, you're my home, my peace, my everything.
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item scroll-reveal">
+                <div class="timeline-content">
+                    <div class="timeline-date">💖 Our Forever</div>
+                    <div class="timeline-text">
+                        I promise to love you more with each passing day. To be your shelter in storms, 
+                        your laughter in joy, your constant in change. Together, we'll write our forever story.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOREVER SECTION – ORIGINAL VOWS, BLESSED -->
+        <div class="forever-section">
+            <h2 class="forever-title">My Promise to You 🌹</h2>
+            <p class="forever-text">
+                I will love you when the sun rises and when it sets. I will love you in every season, 
+                through every storm, and in every moment of calm. My love for you is not just a feeling - 
+                it's a promise, a commitment, a forever kind of love.
+            </p>
+            <p class="forever-text">
+                You are the answer to prayers I never spoke, the dream I never knew I had, 
+                and the love I never believed could be real. With you, I've found my purpose, 
+                my joy, and my forever.
+            </p>
+        </div>
+
+        <!-- ===== NEW! LOVELY NOTES CONTAINER – 5 ONE-LINE NOTES ===== -->
+        <!-- Placed above love letter, perfectly matching page content -->
+        <div class="lovely-notes scroll-reveal">
+            <div class="notes-title">Whispers from my Heart 💌</div>
+            <div class="notes-list">
+                <div class="note-item">
+                    <span class="note-icon">💗</span>
+                    <span class="note-text">Every sunrise feels warmer because you're in my world.</span>
+                </div>
+                <div class="note-item">
+                    <span class="note-icon">🌸</span>
+                    <span class="note-text">Your love is the melody my heart never stops singing.</span>
+                </div>
+                <div class="note-item">
+                    <span class="note-icon">✨</span>
+                    <span class="note-text">With you, even ordinary days become beautiful memories.</span>
+                </div>
+                <div class="note-item">
+                    <span class="note-icon">🦋</span>
+                    <span class="note-text">You are my home, my peace, my favorite place to be.</span>
+                </div>
+                <div class="note-item">
+                    <span class="note-icon">💕</span>
+                    <span class="note-text">Forever begins and ends with you — and that's all I need.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- LOVE LETTER – ORIGINAL WORDS, TREASURED -->
+        <div class="love-letter" id="loveLetter">
+            <div class="letter-seal">💌</div>
+            <div class="letter-content">
+                My Dearest Wifey<br><br>
+                If I could gather all the stars in the sky,<br>
+                They wouldn't shine as bright as your eyes.<br>
+                If I could collect all the flowers that grow,<br>
+                Their beauty combined wouldn't match your glow.<br><br>
+                You are my always and forever.<br>
+                Always yours, forever yours.<br>
+                💕
+            </div>
+        </div>
+
+        <!-- DUAL BUTTON – ORIGINAL TEXT, SACRED CALLING -->
+        <div class="dual-button-container">
+            <a href="threechapters.html" class="nav-btn">
+                <i class="fas fa-arrow-left"></i>
+                <span>Go Back 💝</span>
+            </a>
+            <a href="9chaptersoflove.html" class="nav-btn final-btn">It's Not Done Yet 💕</a>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            "use strict";
+            // --------------------------------------------------
+            // ULTRA ENHANCEMENT – ZERO CONTENT CHANGE (EXCEPT NEW NOTES)
+            // ALL ORIGINAL WORDS PRESERVED – NEW NOTES CONTAINER ADDED
+            // --------------------------------------------------
+
+            // HEART CURSOR – blessed desktop grace
+            const cursor = document.querySelector('.heart-cursor');
+            if (cursor && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+                document.addEventListener('mousemove', (e) => {
+                    if (gsap) {
+                        gsap.to(cursor, {
+                            x: e.clientX - 22,
+                            y: e.clientY - 22,
+                            duration: 0.14,
+                            ease: "power2.out"
+                        });
+                    }
+                });
+                setInterval(() => {
+                    if (gsap) gsap.to(cursor, { scale: 1.3, duration: 0.55, yoyo: true, repeat: 1, ease: "sine.inOut" });
+                }, 2200);
+            } else if (cursor) cursor.style.display = 'none';
+
+            // SPARKLES – INFINITE CELESTIAL LOVE DUST
+            function createSparkles() {
+                for (let i = 0; i < 32; i++) {
+                    setTimeout(() => {
+                        const s = document.createElement('div');
+                        s.className = 'sparkle';
+                        s.style.left = Math.random() * 100 + 'vw';
+                        s.style.top = Math.random() * 100 + 'vh';
+                        s.style.animationDelay = (Math.random() * 1.5) + 's';
+                        s.style.background = `radial-gradient(circle, #fff0f5, #ffb3c6, #ff8da1)`;
+                        s.style.width = (Math.random() * 14 + 5) + 'px';
+                        s.style.height = s.style.width;
+                        document.body.appendChild(s);
+                        setTimeout(() => s.remove(), 2200);
+                    }, i * 28);
+                }
+            }
+
+            // FLOATING HEARTS – ETERNAL BLESSINGS, INFINITE VARIETY
+            function addFloatingHeart() {
+                const container = document.querySelector('.floating-elements');
+                if (!container) return;
+                const hearts = ['💖', '💗', '💓', '💕', '💝', '🌸', '✨', '🦋', '🌹', '🌷', '💞', '🌺', '💘', '🌟', '💐', '🕊️', '💫', '✨'];
+                const el = document.createElement('div');
+                el.className = 'floating-element';
+                el.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                el.style.left = Math.random() * 100 + 'vw';
+                el.style.top = Math.random() * 100 + 'vh';
+                el.style.fontSize = (Math.random() * 24 + 20) + 'px';
+                el.style.opacity = 0.3 + Math.random() * 0.35;
+                el.style.animationDuration = (Math.random() * 26 + 28) + 's';
+                el.style.animationDelay = (Math.random() * -20) + 's';
+                container.appendChild(el);
+                setTimeout(() => { if (el.parentNode) el.remove(); }, 50000);
+            }
+
+            // DIVINE OBSERVER – SACRED VISIBILITY
+            function revealSacred() {
+                const items = document.querySelectorAll('.scroll-reveal, .timeline-item');
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) entry.target.classList.add('visible');
+                    });
+                }, { threshold: 0.1, rootMargin: '0px 0px -10px 0px' });
+                items.forEach(el => observer.observe(el));
+                
+                setTimeout(() => {
+                    items.forEach(el => {
+                        const rect = el.getBoundingClientRect();
+                        if (rect.top < window.innerHeight - 10 && rect.bottom > 0) {
+                            el.classList.add('visible');
+                        }
+                    });
+                }, 50);
+            }
+
+            // LOVE LETTER – SACRED INTERACTION
+            const letter = document.getElementById('loveLetter');
+            if (letter) {
+                letter.addEventListener('click', function() {
+                    if (gsap) {
+                        gsap.to(this, { 
+                            scale: 1.07, 
+                            duration: 0.3, 
+                            yoyo: true, 
+                            repeat: 1, 
+                            ease: "back.out(1.2)" 
+                        });
+                    }
+                    createSparkles();
+                    for (let i = 0; i < 6; i++) setTimeout(addFloatingHeart, i * 50);
+                    this.style.animation = 'gentleFloat 0.8s ease';
+                    setTimeout(() => this.style.animation = '', 800);
+                });
+            }
+
+            // BUTTONS – HEAVENLY TOUCH
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.addEventListener('mouseenter', function() { if (gsap) gsap.to(this, { scale: 1.1, duration: 0.4 }); });
+                btn.addEventListener('mouseleave', function() { if (gsap) gsap.to(this, { scale: 1, duration: 0.4 }); });
+                btn.addEventListener('touchstart', function() { this.style.transform = 'scale(0.94)'; });
+                btn.addEventListener('touchend', function() { this.style.transform = 'scale(1)'; });
+            });
+
+            // PAGE ENTRANCE – CELESTIAL ARRIVAL
+            if (gsap) {
+                gsap.from('.header h1', { 
+                    opacity: 0, 
+                    y: -30, 
+                    duration: 1.6, 
+                    delay: 0.1, 
+                    ease: "elastic.out(1, 0.4)" 
+                });
+                gsap.from('.header p', { 
+                    opacity: 0, 
+                    y: 30, 
+                    duration: 1.4, 
+                    delay: 0.5, 
+                    ease: "power2.out" 
+                });
+                gsap.from('.timeline', { 
+                    opacity: 0, 
+                    y: 40, 
+                    duration: 1.4, 
+                    delay: 0.8,
+                    ease: "power2.out"
+                });
+            }
+
+            // ETERNAL ROSE – BLESSED SCROLL ANCHOR
+            const roseBtn = document.createElement('button');
+            roseBtn.innerHTML = '<i class="fas fa-chevron-up"></i>';
+            roseBtn.className = 'eternal-rose';
+            document.body.appendChild(roseBtn);
+            roseBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+            window.addEventListener('scroll', () => {
+                roseBtn.style.display = window.pageYOffset > 150 ? 'flex' : 'none';
+            });
+
+            // SWIPE – BLESSED NAVIGATION
+            let touchY = 0;
+            document.addEventListener('touchstart', e => touchY = e.changedTouches[0].screenY);
+            document.addEventListener('touchend', e => {
+                const diff = touchY - e.changedTouches[0].screenY;
+                if (diff > 70) document.querySelector('.forever-section')?.scrollIntoView({ behavior: 'smooth' });
+                else if (diff < -70) window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // INIT – CONSECRATION
+            document.addEventListener('DOMContentLoaded', () => {
+                for (let i = 0; i < 18; i++) setTimeout(addFloatingHeart, i * 70);
+                setInterval(addFloatingHeart, 2200);
+                createSparkles();
+                setInterval(createSparkles, 1600);
+                revealSacred();
+                
+                // ULTIMATE VISIBILITY CONSECRATION
+                setTimeout(() => {
+                    document.querySelectorAll('.timeline-item, .forever-section, .lovely-notes, .love-letter, .header, .container').forEach(el => {
+                        el.style.visibility = 'visible';
+                        el.style.opacity = '1';
+                    });
+                }, 100);
+            });
+        })();
+    </script>
+</body>
+</html>

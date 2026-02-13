@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Three Chapters of My Heart 🌹</title>
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Great+Vibes&family=Parisienne&family=Sacramento&family=Caveat:wght@400;500;600&family=Quicksand:wght@300;400;500;600&family=Alex+Brush&family=La+Belle+Aurore&family=Playfair+Display:wght@400;500&family=Allura&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ---------- MOBILE FIRST - PERFECTLY BALANCED ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            font-size: 14px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: #ffe4ec;
+            color: #2a1a22;
+            line-height: 1.45;
+            overflow-x: hidden;
+            padding: 0 0 20px;
+            min-height: 100vh;
+        }
+
+        /* ---------- SUBTLE BACKGROUND ---------- */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle at 20% 40%, rgba(255, 210, 225, 0.2) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* ---------- FLOATING ELEMENTS ---------- */
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+            overflow: hidden;
+        }
+
+        .floating-item {
+            position: absolute;
+            font-size: 1.2rem;
+            opacity: 0.12;
+            animation: floatDream 35s linear infinite;
+            color: #ffb0c0;
+        }
+
+        @keyframes floatDream {
+            0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+            20% { opacity: 0.12; }
+            100% { transform: translateY(-15vh) rotate(380deg); opacity: 0; }
+        }
+
+        /* ---------- PROGRESS BAR ---------- */
+        .story-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 200, 215, 0.5);
+            z-index: 1000;
+        }
+
+        .progress-fill {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #ff8aa5, #c45a75);
+            transition: width 0.2s ease;
+            box-shadow: 0 0 10px #ff8aa5;
+        }
+
+        /* ---------- MAIN CONTAINER ---------- */
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 0.8rem 1rem 2rem;
+            position: relative;
+            z-index: 50;
+        }
+
+        /* ========== HEADER - BOLD & BEAUTIFUL ========= */
+        .romantic-header {
+            text-align: center;
+            padding: 1.8rem 1.2rem;
+            margin-bottom: 1.5rem;
+            margin-top: 0.2rem;
+            background: #fff0f5;
+            border-radius: 50px 14px 50px 14px;
+            box-shadow: 0 12px 0 #f8d0d8, 0 18px 28px rgba(160, 80, 100, 0.15);
+            border: 2px solid white;
+            position: relative;
+        }
+
+        .header-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #a13e55;
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+            text-shadow: 0 2px 10px rgba(196, 90, 117, 0.25);
+            letter-spacing: 1px;
+        }
+
+        .header-sub {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.05rem;
+            color: #7a4452;
+            margin-bottom: 1rem;
+            border-bottom: 2px dashed #ffb6c1;
+            border-top: 2px dashed #ffb6c1;
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            background: rgba(255, 235, 245, 0.7);
+            border-radius: 50px;
+        }
+
+        .header-quote {
+            font-family: 'Caveat', cursive;
+            font-size: 0.95rem;
+            color: #4a2a32;
+            max-width: 420px;
+            margin: 1rem auto 0;
+            line-height: 1.55;
+            padding: 1rem 1.2rem;
+            background: #ffe8f0;
+            border-radius: 60px 14px 60px 14px;
+            border-left: 8px solid #ff8aa5;
+            border-right: 4px solid #ffc0d0;
+            font-weight: 500;
+            box-shadow: 0 6px 14px rgba(160, 80, 100, 0.08);
+        }
+
+        .header-quote i {
+            color: #c45a75;
+            margin: 0 4px;
+            font-size: 1rem;
+        }
+
+        .header-quote .highlight {
+            background: #ffd9e2;
+            padding: 0.15rem 0.6rem;
+            border-radius: 40px;
+            color: #982b45;
+            font-weight: 700;
+            border: 1px solid #ff8da1;
+            display: inline-block;
+        }
+
+        /* ---------- CHAPTER DIVIDERS ---------- */
+        .chapter-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            margin: 2.8rem 0 2.2rem;
+            color: #a8435c;
+            font-family: 'Dancing Script', cursive;
+            font-size: 0.95rem;
+            letter-spacing: 3px;
+            opacity: 0.9;
+        }
+
+        .divider-line {
+            flex: 1;
+            height: 1.5px;
+            background: linear-gradient(90deg, transparent, #ffb6c1, #ff8aa5, #ffb6c1, transparent);
+        }
+
+        .divider-icon {
+            font-size: 1.4rem;
+            animation: pulseDivider 3s infinite;
+        }
+
+        @keyframes pulseDivider {
+            0%, 100% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.15); opacity: 1; }
+        }
+
+        /* ---------- CHAPTER BADGES ---------- */
+        .chapter-badge {
+            font-family: 'La Belle Aurore', cursive;
+            font-size: 1.1rem;
+            color: #7a4452;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: white;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            display: inline-flex;
+            border: 1.5px solid #ffc0d0;
+            box-shadow: 0 4px 8px rgba(160, 80, 100, 0.05);
+        }
+
+        .chapter-badge i {
+            color: #b34d66;
+            font-size: 0.95rem;
+        }
+
+        /* ========== CHAPTER 1 - YOU ARE MY... ========= */
+        .section-unsent {
+            position: relative;
+            padding: 1.8rem 1.4rem;
+            margin-bottom: 1rem;
+            background: #fff5f8;
+            border-radius: 50px 14px 50px 14px;
+            box-shadow: 0 12px 0 #f8d0d8, 0 18px 28px rgba(140, 65, 90, 0.15);
+            border: 2px solid white;
+        }
+
+        .unsent-header {
+            font-family: 'Alex Brush', cursive;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #a13e55;
+            margin-bottom: 0.3rem;
+            line-height: 1.1;
+            text-shadow: 0 2px 8px rgba(196, 90, 117, 0.15);
+            letter-spacing: 1px;
+        }
+
+        .unsent-sub {
+            font-family: 'La Belle Aurore', cursive;
+            font-size: 0.9rem;
+            color: #7a4452;
+            margin-bottom: 1.4rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px dotted #ffb6c1;
+            display: inline-block;
+        }
+
+        .envelope-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+            margin: 1.4rem 0;
+        }
+
+        .envelope-item {
+            position: relative;
+            width: 100%;
+        }
+
+        .envelope-seal {
+            position: absolute;
+            top: -6px;
+            right: 10px;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(145deg, #ffb6c1, #ff8aa5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            border: 2.5px solid white;
+            box-shadow: 0 4px 10px rgba(180, 70, 100, 0.2);
+            z-index: 20;
+            cursor: pointer;
+            animation: sealGlow 2.5s infinite;
+        }
+
+        @keyframes sealGlow {
+            0%, 100% { box-shadow: 0 4px 10px rgba(180, 70, 100, 0.2); transform: scale(1); }
+            50% { box-shadow: 0 8px 16px rgba(200, 60, 90, 0.3); transform: scale(1.05); }
+        }
+
+        .envelope {
+            background: white;
+            border-radius: 26px 10px 26px 10px;
+            padding: 1.3rem 1.1rem 1.3rem 1.3rem;
+            border: 1.5px solid #ffd0d8;
+            box-shadow: 0 8px 0 rgba(200, 140, 150, 0.1), 0 12px 20px rgba(150, 70, 90, 0.06);
+            border-left: 8px solid #ffb6c1;
+            cursor: pointer;
+        }
+
+        .envelope:active {
+            transform: translateY(-3px);
+            border-left-color: #c45a75;
+        }
+
+        .envelope-heading {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #b34d66;
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 1.5px dashed #ffd5dd;
+            padding-bottom: 0.3rem;
+        }
+
+        .envelope-heading i {
+            color: #c45a75;
+            font-size: 1rem;
+        }
+
+        .envelope-preview {
+            font-family: 'Caveat', cursive;
+            font-size: 0.95rem;
+            color: #5a3040;
+            font-weight: 500;
+            line-height: 1.5;
+            padding-left: 0.5rem;
+            border-left: 3px solid #ffd5dd;
+        }
+
+        .unsent-final {
+            font-family: 'Sacramento', cursive;
+            font-size: 1.5rem;
+            color: #7a4452;
+            text-align: right;
+            margin-top: 1.2rem;
+            padding-top: 0.7rem;
+            border-top: 2px dotted #ffb6c1;
+        }
+
+        /* ========== LETTER MODAL ========= */
+        .letter-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(40, 20, 30, 0.9);
+            backdrop-filter: blur(6px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            padding: 1rem;
+        }
+
+        .letter-modal.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 50px 14px 50px 14px;
+            padding: 1.8rem 1.5rem;
+            max-width: 450px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+            border: 2px solid #ffd0d8;
+            box-shadow: 0 20px 40px rgba(80, 40, 50, 0.25);
+        }
+
+        .letter-modal.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 36px;
+            height: 36px;
+            background: #ffb6c1;
+            border: 2.5px solid white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.4rem;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(180, 70, 100, 0.2);
+        }
+
+        .modal-heading {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.3rem;
+            color: #b34d66;
+            margin-bottom: 0.8rem;
+            border-bottom: 2px dashed #ffb6c1;
+            padding-bottom: 0.4rem;
+        }
+
+        .full-letter {
+            font-family: 'Caveat', cursive;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #3a1e2a;
+            margin: 0.8rem 0 0.4rem;
+            white-space: pre-line;
+        }
+
+        .letter-signature-modal {
+            font-family: 'Alex Brush', cursive;
+            font-size: 1.5rem;
+            color: #a35268;
+            text-align: right;
+            margin-top: 1.2rem;
+            border-top: 2px dashed #ffb6c1;
+            padding-top: 0.7rem;
+        }
+
+        /* ========== CHAPTER 2 - YOU DESERVE THIS ========= */
+        .section-deserve {
+            padding: 1.8rem 1.4rem;
+            margin: 1.4rem 0;
+            background: #fff5f8;
+            border-radius: 50px 14px 50px 14px;
+            box-shadow: 0 12px 0 #f8d0d8, 0 18px 28px rgba(140, 65, 90, 0.15);
+            border: 2px solid white;
+        }
+
+        .deserve-header {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.9rem;
+            color: #b34d66;
+            text-align: center;
+            margin-bottom: 0.4rem;
+        }
+
+        .deserve-sub {
+            font-family: 'Parisienne', cursive;
+            font-size: 1.05rem;
+            color: #8a4a5a;
+            text-align: center;
+            margin-bottom: 1.4rem;
+            border-bottom: 2px dashed #ffb6c1;
+            border-top: 2px dashed #ffb6c1;
+            padding: 0.5rem;
+        }
+
+        .affirmation-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.8rem;
+            margin: 1.4rem 0;
+        }
+
+        .affirmation-card {
+            background: white;
+            padding: 1.2rem 0.5rem;
+            border-radius: 30px 8px 30px 8px;
+            text-align: center;
+            border: 1.5px solid #ffd5dd;
+            box-shadow: 0 6px 14px rgba(160, 80, 100, 0.03);
+            cursor: pointer;
+        }
+
+        .affirmation-card:active {
+            transform: translateY(-3px);
+            border-color: #ffb6c1;
+        }
+
+        .affirmation-icon {
+            font-size: 1.7rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .affirmation-word {
+            font-family: 'Sacramento', cursive;
+            font-size: 1.5rem;
+            color: #b34d66;
+            line-height: 1.2;
+            margin-bottom: 0.2rem;
+        }
+
+        .affirmation-meaning {
+            font-size: 0.68rem;
+            color: #6a3e4a;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        .deserve-poem {
+            background: #fff0f5;
+            padding: 1.4rem 1.2rem;
+            border-radius: 45px 12px 45px 12px;
+            margin: 1.4rem 0;
+            border-left: 8px solid #ffb6c1;
+            font-family: 'Caveat', cursive;
+            font-size: 0.98rem;
+            line-height: 1.65;
+            color: #3e2530;
+        }
+
+        .mirror-container {
+            text-align: center;
+            margin: 1.4rem 0 1rem;
+            padding: 1.4rem;
+            background: rgba(255, 245, 250, 0.8);
+            border-radius: 45px;
+            border: 1.5px solid #ffd0d8;
+        }
+
+        .mirror-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.2rem;
+            color: #a84e63;
+            margin-bottom: 0.6rem;
+        }
+
+        .rotating-affirmation {
+            font-size: 0.92rem;
+            color: #5c3642;
+            padding: 0.7rem 1.1rem;
+            background: white;
+            border-radius: 40px;
+            display: inline-block;
+            border: 2px dashed #ff9eb5;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+        }
+
+        /* ========== CHAPTER 3 - THANK YOU ========= */
+        .section-thankyou {
+            padding: 1.8rem 1.4rem;
+            margin: 1.4rem 0;
+            background: #fff5f8;
+            border-radius: 50px 14px 50px 14px;
+            box-shadow: 0 12px 0 #f8d0d8, 0 18px 28px rgba(140, 65, 90, 0.15);
+            border: 2px solid white;
+        }
+
+        .thankyou-header {
+            font-family: 'Allura', cursive;
+            font-size: 2rem;
+            color: #a35268;
+            text-align: center;
+            margin-bottom: 0.3rem;
+        }
+
+        .thankyou-sub {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.1rem;
+            color: #7a4452;
+            text-align: center;
+            margin-bottom: 1.4rem;
+        }
+
+        .gratitude-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin: 1.4rem 0;
+        }
+
+        .gratitude-item {
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+            background: white;
+            padding: 0.9rem 1.1rem;
+            border-radius: 45px 10px 45px 10px;
+            border-left: 7px solid #ffb6c1;
+            font-family: 'Caveat', cursive;
+            font-size: 0.98rem;
+            color: #452a32;
+            cursor: pointer;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.01);
+        }
+
+        .gratitude-item:active {
+            border-left-color: #c45a75;
+            transform: translateX(5px);
+        }
+
+        .gratitude-icon {
+            font-size: 1.4rem;
+            min-width: 36px;
+            text-align: center;
+            color: #b8576b;
+        }
+
+        .before-after {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            margin: 1.8rem 0;
+            background: rgba(255, 240, 240, 0.5);
+            padding: 1.5rem;
+            border-radius: 45px 12px 45px 12px;
+            border: 1px solid rgba(255, 190, 200, 0.5);
+        }
+
+        .before, .after {
+            padding: 1.2rem;
+            border-radius: 28px 8px 28px 8px;
+            background: white;
+        }
+
+        .before {
+            border-left: 8px solid #e6a8b0;
+        }
+
+        .after {
+            border-left: 8px solid #d68795;
+        }
+
+        .before-title, .after-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.7rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .before-title { color: #95626b; }
+        .after-title { color: #b35e6e; }
+
+        .before-text, .after-text {
+            font-family: 'Caveat', cursive;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #4a313a;
+        }
+
+        .final-gratitude {
+            margin-top: 1.8rem;
+            padding: 1.5rem 1.2rem;
+            background: white;
+            border-radius: 50px 14px 50px 14px;
+            text-align: center;
+            border: 2px solid #ffd8d0;
+        }
+
+        .final-gratitude p {
+            font-family: 'Parisienne', cursive;
+            font-size: 1.4rem;
+            color: #7a4450;
+            line-height: 1.5;
+        }
+
+        .final-signature {
+            font-family: 'Alex Brush', cursive;
+            font-size: 1.8rem;
+            color: #9f4e5e;
+            margin-top: 1rem;
+            border-top: 2px dotted #e6b8b0;
+            padding-top: 0.8rem;
+        }
+
+        /* ========== NEW SECTION: GENTLE REMINDERS ========= */
+        .section-reminders {
+            padding: 1.8rem 1.4rem;
+            margin: 1.4rem 0;
+            background: #fff5f8;
+            border-radius: 50px 14px 50px 14px;
+            box-shadow: 0 12px 0 #f8d0d8, 0 18px 28px rgba(140, 65, 90, 0.15);
+            border: 2px solid white;
+        }
+
+        .reminders-header {
+            font-family: 'Parisienne', cursive;
+            font-size: 2rem;
+            color: #a13e55;
+            text-align: center;
+            margin-bottom: 0.2rem;
+        }
+
+        .reminders-sub {
+            font-family: 'La Belle Aurore', cursive;
+            font-size: 0.95rem;
+            color: #7a4452;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px dashed #ffb6c1;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+            width: auto;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .quotes-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.9rem;
+            margin: 1.8rem 0;
+        }
+
+        .quote-card {
+            background: white;
+            padding: 1.2rem 0.8rem;
+            border-radius: 30px 8px 30px 8px;
+            border-left: 6px solid #ffb6c1;
+            border-right: 2px solid #ffe0e8;
+            font-family: 'Caveat', cursive;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #4a2a32;
+            text-align: center;
+            box-shadow: 0 6px 12px rgba(160, 80, 100, 0.05);
+            transition: all 0.2s ease;
+            cursor: pointer;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .quote-card:hover {
+            transform: translateY(-3px);
+            border-left-color: #c45a75;
+            box-shadow: 0 12px 20px rgba(160, 80, 100, 0.1);
+        }
+
+        .quote-card i {
+            color: #ff8aa5;
+            font-size: 0.8rem;
+            margin: 0 3px;
+            opacity: 0.7;
+        }
+
+        .quote-card .quote-heart {
+            color: #ff6f91;
+            font-size: 0.9rem;
+        }
+
+        /* Reason Generator */
+        .reason-generator {
+            background: rgba(255, 240, 245, 0.7);
+            border-radius: 45px 12px 45px 12px;
+            padding: 1.5rem 1.2rem;
+            margin: 1.5rem 0 0.8rem;
+            border: 2px dashed #ffb6c1;
+            text-align: center;
+        }
+
+        .generator-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            color: #b34d66;
+            margin-bottom: 0.8rem;
+        }
+
+        .generator-title i {
+            color: #ff8aa5;
+            margin: 0 5px;
+        }
+
+        .reason-box {
+            background: white;
+            padding: 1.5rem 1.2rem;
+            border-radius: 35px 10px 35px 10px;
+            margin: 1rem 0;
+            font-family: 'Caveat', cursive;
+            font-size: 1.2rem;
+            color: #3e2530;
+            line-height: 1.6;
+            border-left: 8px solid #ffb6c1;
+            border-right: 4px solid #ffe0e8;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .reason-box i {
+            color: #ff8aa5;
+            margin: 0 5px;
+            font-size: 1rem;
+        }
+
+        .generate-btn {
+            background: linear-gradient(145deg, #ffb6c1, #ff8aa5);
+            border: none;
+            color: white;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.3rem;
+            font-weight: 700;
+            padding: 0.8rem 2rem;
+            border-radius: 60px;
+            box-shadow: 0 8px 0 #c45a75, 0 10px 20px rgba(180, 70, 100, 0.2);
+            cursor: pointer;
+            border: 2px solid white;
+            margin: 0.8rem auto 0.3rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            transition: all 0.1s ease;
+        }
+
+        .generate-btn:active {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 0 #c45a75, 0 15px 25px rgba(180, 70, 100, 0.25);
+        }
+
+        .generate-btn i {
+            font-size: 1.1rem;
+        }
+
+        .reason-footer {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.7rem;
+            color: #7a4e57;
+            margin-top: 0.8rem;
+            opacity: 0.8;
+        }
+
+        /* ========== NAVIGATION BUTTONS ========= */
+        .dual-button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.8rem;
+            margin: 2.5rem 0 1.2rem;
+            width: 100%;
+        }
+
+        .back-btn, .nav-btn {
+            padding: 0.8rem 1.6rem;
+            font-size: 1.05rem;
+            font-family: 'Dancing Script', cursive;
+            font-weight: 700;
+            background: white;
+            color: #512838;
+            border-radius: 60px;
+            box-shadow: 0 10px 0 #f0d0d0, 0 15px 25px rgba(165, 85, 115, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.7rem;
+            width: 100%;
+            max-width: 260px;
+            text-decoration: none;
+            border: 2px solid white;
+            color: #5a3040;
+        }
+
+        .back-btn i, .nav-btn i {
+            color: #b34462;
+            font-size: 1rem;
+        }
+
+        .back-btn:active, .nav-btn:active {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 0 #f0d0d0, 0 18px 28px rgba(180, 90, 125, 0.15);
+        }
+
+        /* ========== RESPONSIVE - TINY SCREENS ========= */
+        @media (max-width: 380px) {
+            html { font-size: 13.5px; }
+            .header-title { font-size: 2rem; }
+            .unsent-header { font-size: 1.8rem; }
+            .affirmation-word { font-size: 1.4rem; }
+            .quotes-grid { gap: 0.6rem; }
+            .quote-card { font-size: 0.85rem; padding: 1rem 0.5rem; }
+        }
+
+        /* ========== SCROLL REVEAL ========= */
+        .reveal {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: all 0.6s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========== ANIMATIONS ========= */
+        @keyframes sparkleFade {
+            0% { opacity: 0; transform: scale(0.5); }
+            50% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(1.2) translateY(-15px); }
+        }
+        
+        @keyframes heartFloatUp {
+            0% { opacity: 0; transform: translateY(0) scale(0.6); }
+            50% { opacity: 1; transform: translateY(-15px) scale(1); }
+            100% { opacity: 0; transform: translateY(-40px) scale(0.8); }
+        }
+
+        @keyframes gentlePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Elements -->
+    <div class="floating-elements" id="floatingElements"></div>
+    
+    <!-- Progress Bar -->
+    <div class="story-progress">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+    
+    <!-- LETTER MODAL -->
+    <div class="letter-modal" id="letterModal">
+        <div class="modal-content">
+            <div class="modal-close" id="closeModalBtn">&times;</div>
+            <div class="modal-heading" id="modalLetterHeading"></div>
+            <div class="full-letter" id="modalLetterContent"></div>
+            <div class="letter-signature-modal" id="modalLetterSignature"></div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <!-- ========== HEADER ========= -->
+        <div class="romantic-header reveal">
+            <h1 class="header-title">Three Chapters of My Heart</h1>
+            <div class="header-sub">
+                <i class="fas fa-feather"></i> for you, only you <i class="fas fa-feather"></i>
+            </div>
+            <div class="header-quote">
+                <i class="fas fa-quote-left"></i> 
+                <span class="highlight">You</span> are not just my favorite chapter — 
+                you are the <span class="highlight">entire story</span> my heart has always wanted to tell.
+                <i class="fas fa-quote-right"></i>
+            </div>
+        </div>
+
+        <!-- ===== CHAPTER 1: YOU ARE MY... ===== -->
+        <section class="section-unsent reveal">
+            <div class="chapter-badge">
+                <i class="fas fa-feather"></i> Chapter One
+                <i class="fas fa-feather"></i>
+            </div>
+            
+            <h1 class="unsent-header">You Are My...</h1>
+            <div class="unsent-sub">six ways you became my everything</div>
+            
+            <div class="envelope-stack">
+                <!-- LETTER 1 - You Are My Home -->
+                <div class="envelope-item">
+                    <div class="envelope-seal" data-letter="0">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="envelope" data-letter="0">
+                        <div class="envelope-heading">
+                            <i class="fas fa-home"></i> You Are My Home
+                        </div>
+                        <div class="envelope-preview">
+                            "I used to think home was a place — four walls, a roof, an address. But then I met you. Now home is the sound of your voice after a long day..."
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- LETTER 2 - You Are My Peace -->
+                <div class="envelope-item">
+                    <div class="envelope-seal" data-letter="1">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="envelope" data-letter="1">
+                        <div class="envelope-heading">
+                            <i class="fas fa-dove"></i> You Are My Peace
+                        </div>
+                        <div class="envelope-preview">
+                            "The world is loud. Demands, deadlines, noise from every direction. And then you speak. And everything goes quiet..."
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- LETTER 3 - You Are My Favorite Thought -->
+                <div class="envelope-item">
+                    <div class="envelope-seal" data-letter="2">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="envelope" data-letter="2">
+                        <div class="envelope-heading">
+                            <i class="fas fa-heart"></i> You Are My Favorite Thought
+                        </div>
+                        <div class="envelope-preview">
+                            "My mind is a crowded room — work, worries, lists, regrets. Thousands of thoughts fighting for attention. And then there is you..."
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- LETTER 4 - You Are My Answered Prayer -->
+                <div class="envelope-item">
+                    <div class="envelope-seal" data-letter="3">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="envelope" data-letter="3">
+                        <div class="envelope-heading">
+                            <i class="fas fa-hands-praying"></i> You Are My Answered Prayer
+                        </div>
+                        <div class="envelope-preview">
+                            "I don't remember exactly when I started praying for you. I didn't know your name. I didn't know your face. But something in me kept believing..."
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- LETTER 5 - You Are My Courage -->
+                <div class="envelope-item">
+                    <div class="envelope-seal" data-letter="4">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="envelope" data-letter="4">
+                        <div class="envelope-heading">
+                            <i class="fas fa-shield-haltered"></i> You Are My Courage
+                        </div>
+                        <div class="envelope-preview">
+                            "I used to be afraid of so many things. Afraid of rejection. Afraid of vulnerability. And then you looked at me — not despite my cracks, but including them..."
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- LETTER 6 - You Are My Forever -->
+                <div class="envelope-item">
+                    <div class="envelope-seal" data-letter="5">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="envelope" data-letter="5">
+                        <div class="envelope-heading">
+                            <i class="fas fa-infinity"></i> You Are My Forever
+                        </div>
+                        <div class="envelope-preview">
+                            "I don't know how many days I have left. None of us do. But I know this: I want to spend every single one of them with you..."
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="unsent-final">
+                — You are my everything. In every way.
+            </div>
+        </section>
+        
+        <!-- DIVIDER -->
+        <div class="chapter-divider reveal">
+            <span class="divider-line"></span>
+            <span class="divider-icon">🌸</span>
+            <span class="divider-line"></span>
+        </div>
+        
+        <!-- ===== CHAPTER 2: YOU DESERVE THIS ===== -->
+        <section class="section-deserve reveal">
+            <div class="chapter-badge">
+                <i class="fas fa-crown"></i> Chapter Two
+                <i class="fas fa-crown"></i>
+            </div>
+            
+            <h2 class="deserve-header">You Deserve This</h2>
+            <div class="deserve-sub">and so much more than you believe</div>
+            
+            <div class="affirmation-grid">
+                <div class="affirmation-card" onclick="sparkleAffirmation(this)">
+                    <div class="affirmation-icon">🌸</div>
+                    <div class="affirmation-word">Enough</div>
+                    <div class="affirmation-meaning">Never too much, never too little</div>
+                </div>
+                <div class="affirmation-card" onclick="sparkleAffirmation(this)">
+                    <div class="affirmation-icon">💎</div>
+                    <div class="affirmation-word">Precious</div>
+                    <div class="affirmation-meaning">Rare, irreplaceable, treasured</div>
+                </div>
+                <div class="affirmation-card" onclick="sparkleAffirmation(this)">
+                    <div class="affirmation-icon">🕊️</div>
+                    <div class="affirmation-word">Safe</div>
+                    <div class="affirmation-meaning">Where your soul can rest</div>
+                </div>
+                <div class="affirmation-card" onclick="sparkleAffirmation(this)">
+                    <div class="affirmation-icon">🌟</div>
+                    <div class="affirmation-word">Magic</div>
+                    <div class="affirmation-meaning">You change rooms without trying</div>
+                </div>
+                <div class="affirmation-card" onclick="sparkleAffirmation(this)">
+                    <div class="affirmation-icon">🦋</div>
+                    <div class="affirmation-word">Transforming</div>
+                    <div class="affirmation-meaning">You grow, heal, rise</div>
+                </div>
+                <div class="affirmation-card" onclick="sparkleAffirmation(this)">
+                    <div class="affirmation-icon">🌙</div>
+                    <div class="affirmation-word">Deep</div>
+                    <div class="affirmation-meaning">Oceans envy your depth</div>
+                </div>
+                <div class="affirmation-card" onclick="sparkleAffirmation(this)">
+                    <div class="affirmation-icon">☀️</div>
+                    <div class="affirmation-word">Warmth</div>
+                    <div class="affirmation-meaning">You make cold days bearable</div>
+                </div>
+                <div class="affirmation-card" onclick="sparkleAffirmation(this)">
+                    <div class="affirmation-icon">📖</div>
+                    <div class="affirmation-word">Unfinished</div>
+                    <div class="affirmation-meaning">Your best chapters are ahead</div>
+                </div>
+            </div>
+            
+            <div class="deserve-poem">
+                <i class="fas fa-quote-left"></i> 
+                I would give you oceans so you'd never feel thirsty for peace.<br>
+                I would give you forests so you'd always find shelter.<br>
+                I would give you stars so you'd never be afraid of the dark.<br>
+                I would give you time—all of it—so you'd never feel rushed to heal, to grow, to become.<br><br>
+                But since I cannot hold the world in my hands,<br>
+                <strong style="font-size:1.3rem; color:#b34d66;">I will hold you instead.</strong><br>
+                And remind you, every single day, that you are not just worthy of the world—<br>
+                <span style="font-size:1.4rem; color:#a8435c; font-family:'Sacramento';">You are the world itself.</span> 
+                <i class="fas fa-quote-right"></i>
+            </div>
+            
+            <div class="mirror-container">
+                <div class="mirror-text">✨ Look at yourself the way I see you ✨</div>
+                <div class="rotating-affirmation" id="rotatingAffirmation" onclick="rotateAffirmation()">
+                    "You are not your mistakes. You are what you learned from them."
+                </div>
+                <p style="margin-top:0.6rem; font-size:0.75rem; color:#7a4e57;">(Tap to change)</p>
+            </div>
+            
+            <p style="text-align: center; font-family: 'Sacramento'; font-size: 1.6rem; color: #b34d66; margin-top: 1.5rem;">
+                You deserve this. You deserve everything. You deserve love.
+            </p>
+        </section>
+        
+        <!-- DIVIDER -->
+        <div class="chapter-divider reveal">
+            <span class="divider-line"></span>
+            <span class="divider-icon">🕊️</span>
+            <span class="divider-line"></span>
+        </div>
+        
+        <!-- ===== CHAPTER 3: THANK YOU ===== -->
+        <section class="section-thankyou reveal">
+            <div class="chapter-badge">
+                <i class="fas fa-heart"></i> Chapter Three
+                <i class="fas fa-heart"></i>
+            </div>
+            
+            <h2 class="thankyou-header">Thank You</h2>
+            <div class="thankyou-sub">for becoming my home</div>
+            
+            <div class="gratitude-list">
+                <div class="gratitude-item" onclick="heartPop(this)">
+                    <span class="gratitude-icon">🌅</span>
+                    <span>For the mornings that feel brighter just because you exist</span>
+                </div>
+                <div class="gratitude-item" onclick="heartPop(this)">
+                    <span class="gratitude-icon">😂</span>
+                    <span>For the laughter that catches me off guard</span>
+                </div>
+                <div class="gratitude-item" onclick="heartPop(this)">
+                    <span class="gratitude-icon">🛋️</span>
+                    <span>For the silence that never feels awkward</span>
+                </div>
+                <div class="gratitude-item" onclick="heartPop(this)">
+                    <span class="gratitude-icon">🩹</span>
+                    <span>For the way you don't fix me — just stay beside me</span>
+                </div>
+                <div class="gratitude-item" onclick="heartPop(this)">
+                    <span class="gratitude-icon">🌧️</span>
+                    <span>For staying even when I wasn't easy to love</span>
+                </div>
+                <div class="gratitude-item" onclick="heartPop(this)">
+                    <span class="gratitude-icon">🗝️</span>
+                    <span>For unlocking parts of my heart I'd locked away</span>
+                </div>
+                <div class="gratitude-item" onclick="heartPop(this)">
+                    <span class="gratitude-icon">🏠</span>
+                    <span>For making 'home' a person, not a place</span>
+                </div>
+                <div class="gratitude-item" onclick="heartPop(this)">
+                    <span class="gratitude-icon">📸</span>
+                    <span>For the memories I replay when I miss you</span>
+                </div>
+                <div class="gratitude-item" onclick="heartPop(this)">
+                    <span class="gratitude-icon">🎵</span>
+                    <span>For becoming the melody my heart never stops singing</span>
+                </div>
+                <div class="gratitude-item" onclick="heartPop(this)">
+                    <span class="gratitude-icon">🤲</span>
+                    <span>For being the answer to prayers I never spoke aloud</span>
+                </div>
+            </div>
+            
+            <div class="before-after">
+                <div class="before">
+                    <div class="before-title">Before You</div>
+                    <div class="before-text">
+                        ✗ I thought love was something you earn.<br>
+                        ✗ I thought being vulnerable meant being weak.<br>
+                        ✗ I thought happiness was a destination.<br>
+                        ✗ I thought I was too much for anyone to stay.
+                    </div>
+                </div>
+                <div class="after">
+                    <div class="after-title">After You</div>
+                    <div class="after-text">
+                        ✓ I know love is not earned—it is recognized.<br>
+                        ✓ I know vulnerability is the bravest thing we can offer.<br>
+                        ✓ I know happiness is how I feel when I'm with you.<br>
+                        ✓ I know I am exactly enough—because you see me.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="final-gratitude">
+                <p>
+                    The one thing I can never thank you enough for:<br>
+                    <strong style="font-size: 1.8rem; font-family:'Great Vibes';">You didn't give up on me.</strong>
+                </p>
+                <p style="font-size: 1.1rem; margin-top: 1rem; font-family:'Caveat';">
+                    You saw me at my worst, my most guarded, my most afraid.<br>
+                    And instead of walking away, you stayed.<br>
+                    You waited. You believed.<br>
+                    <span style="font-size:1.3rem; color:#a35268;">And because you stayed, I started believing in myself too.</span>
+                </p>
+                <div class="final-signature">
+                    Forever grateful, forever yours
+                </div>
+            </div>
+        </section>
+        
+        <!-- DIVIDER -->
+        <div class="chapter-divider reveal">
+            <span class="divider-line"></span>
+            <span class="divider-icon">💫</span>
+            <span class="divider-line"></span>
+        </div>
+        
+        <!-- ===== NEW SECTION: GENTLE REMINDERS ===== -->
+        <section class="section-reminders reveal">
+            <div class="chapter-badge">
+                <i class="fas fa-star"></i> Gentle Reminders
+                <i class="fas fa-star"></i>
+            </div>
+            
+            <h2 class="reminders-header">Little Love Notes</h2>
+            <div class="reminders-sub">For when your heart needs them</div>
+            
+            <!-- Six Lovely Quotes in Grid -->
+            <div class="quotes-grid">
+                <div class="quote-card" onclick="sparkleAffirmation(this)">
+                    <i class="fas fa-quote-left"></i> 
+                    You are the peace I didn't know I was searching for.
+                    <i class="fas fa-quote-right"></i>
+                    <span class="quote-heart"> 💗</span>
+                </div>
+                <div class="quote-card" onclick="sparkleAffirmation(this)">
+                    <i class="fas fa-quote-left"></i> 
+                    In a world of trends, you are my forever.
+                    <i class="fas fa-quote-right"></i>
+                    <span class="quote-heart"> 💖</span>
+                </div>
+                <div class="quote-card" onclick="sparkleAffirmation(this)">
+                    <i class="fas fa-quote-left"></i> 
+                    Loving you feels like coming home.
+                    <i class="fas fa-quote-right"></i>
+                    <span class="quote-heart"> 💕</span>
+                </div>
+                <div class="quote-card" onclick="sparkleAffirmation(this)">
+                    <i class="fas fa-quote-left"></i> 
+                    You are the kind of magic they write poems about.
+                    <i class="fas fa-quote-right"></i>
+                    <span class="quote-heart"> 💘</span>
+                </div>
+                <div class="quote-card" onclick="sparkleAffirmation(this)">
+                    <i class="fas fa-quote-left"></i> 
+                    Every love song finally makes sense because of you.
+                    <i class="fas fa-quote-right"></i>
+                    <span class="quote-heart"> 💓</span>
+                </div>
+                <div class="quote-card" onclick="sparkleAffirmation(this)">
+                    <i class="fas fa-quote-left"></i> 
+                    You are not just my today. You are all my tomorrows.
+                    <i class="fas fa-quote-right"></i>
+                    <span class="quote-heart"> 💝</span>
+                </div>
+            </div>
+            
+            <!-- I Love You Because Generator -->
+            <div class="reason-generator">
+                <div class="generator-title">
+                    <i class="fas fa-heart"></i> I love you because... <i class="fas fa-heart"></i>
+                </div>
+                
+                <div class="reason-box" id="reasonDisplay">
+                    <i class="fas fa-quote-left"></i> 
+                    You make ordinary moments feel extraordinary.
+                    <i class="fas fa-quote-right"></i>
+                </div>
+                
+                <button class="generate-btn" onclick="generateNewReason()">
+                    <i class="fas fa-sync-alt"></i> another reason
+                </button>
+                
+                <div class="reason-footer">
+                    ✨ There's no limit to how many reasons i can find ✨
+                </div>
+            </div>
+        </section>
+        
+        <!-- NAVIGATION -->
+        <div class="dual-button-container">
+            <a href="love3.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                <span>Go Back 💝</span>
+            </a>
+            <a href="promise.html" class="nav-btn">
+                <span>Make me Yours</span>
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+    
+    <script>
+        // ---------- JAVASCRIPT - FULLY RESTORED ----------
+        const unsentLetters = [
+            {
+                heading: "You Are My Home",
+                content: `I used to think home was a place — four walls, a roof, an address. But then I met you.\nNow home is the sound of your voice after a long day.\nHome is the silence we share that never feels empty.\nHome is the way my shoulders relax when you say my name.\nHome is not where I live. Home is where you are.\nI spent so long searching for somewhere to belong. And then you looked at me — and I stopped searching. Because I had finally arrived.`,
+                signature: "— Found my way to you"
+            },
+            {
+                heading: "You Are My Peace",
+                content: `The world is loud. Demands, deadlines, noise from every direction. Some days it feels like I'm drowning in sound. And then you speak. And everything goes quiet. Not the silence of emptiness —\nThe silence of a forest after snow.\nThe silence of sunrise.\nThe silence of two people who don't need words to understand.\nYou are not an escape from the world. You are the reason the world doesn't destroy me.\nWith you, I can breathe.\nWith you, I am still.\nWith you, I am at peace.`,
+                signature: "— Quiet in your presence"
+            },
+            {
+                heading: "You Are My Favorite Thought",
+                content: `My mind is a crowded room — Work, worries, lists, regrets, plans. Thousands of thoughts fighting for attention. And then there is you. Not fighting. Not shouting. Just... present.\nYou are the thought I return to when I need to smile.\nYou are the daydream I escape to in boring meetings.\nYou are the last face I see before sleep takes me.\nYou are the first name my heart whispers when I wake.\nI cannot stop thinking about you. And the beautiful, terrifying truth is — I really don't want to.\nYou are not just a thought.You are my favorite place to rest my mind.`,
+                signature: "— Always on my mind, forever in my heart"
+            },
+            {
+                heading: "You Are My Answered Prayer",
+                content: `I don't remember exactly when I started praying for you.\nMaybe it was the night I felt lonelier than usual. Maybe it was the morning I saw a couple holding hands and wondered. Maybe it was long before we met — some unconscious hope my heart carried without my permission.\nI didn't know your name. I didn't know your face. I didn't know if you even existed. But something in me kept believing. Kept waiting. Kept hoping. And then you arrived. Not with trumpets or thunder. Just a quiet entrance into my life, like you'd always been there.\nYou are not a coincidence. You are not luck. You are not chance.\nYou are the answer to prayers I was too afraid to speak aloud.`,
+                signature: "— Grateful, forever"
+            },
+            {
+                heading: "You Are My Courage",
+                content: `I used to be afraid of so many things.\nAfraid of rejection. Afraid of vulnerability. Afraid of caring too much and losing too deeply. Afraid that I was not enough to be loved. And then you looked at me — Not despite my cracks, but including them. Not waiting for me to be fixed, but holding me while I heal.\nYou didn't make my fears disappear. You just made them smaller. Because suddenly, being brave was worth it. Suddenly, the risk of loving you was not a risk at all.\nYou are not my shield. You are my sword.\nYou are not my escape. You are my reason to fight.\nWith you, I am braver than I ever knew I could be.`,
+                signature: "— Strong because of you"
+            },
+            {
+                heading: "You Are My Forever",
+                content: `I don't know how many days I have left. None of us do. But I know this:\nI want to spend every single one of them with you. Not because love is always easy. Not because we will never hurt or disappoint each other. Not because forever is a promise I can guarantee.\nBut because you are the person I want to struggle with. You are the person I want to grow with. You are the person I want to learn with — How to forgive, how to stay, how to love better.\nForever is not a length of time. It's a choice. And I choose you.\nToday. Tomorrow. And every day after that.\nYou are not my first love. You are my last love. You are my only love. You are my forever.`,
+                signature: "— Yours, always"
+            }
+        ];
+
+        const affirmationsList = [
+            '"You are not your mistakes. You are what you learned from them."',
+            '"You are not your wounds. You are how you healed."',
+            '"You are not your doubts. You are the courage that came after."',
+            '"You are not broken. You are breaking open."',
+            '"You are not lost. You are becoming."',
+            '"You are not too much. You are exactly enough."',
+            '"You are not unfinished. You are still growing."',
+            '"You are not your past. You are the future you\'re building."',
+            '"You are not alone. You are loved beyond measure."'
+        ];
+
+        // Reasons list for the generator
+        const reasonsList = [
+            "You make ordinary moments feel extraordinary.",
+            "You laugh with your whole soul, and it's contagious.",
+            "You remember the little things I forget to remember.",
+            "Your heart is so big it makes mine feel safe.",
+            "You see me — the real me — and you stay.",
+            "You make silence feel like a conversation.",
+            "You are the first thought in my morning and the last in my night.",
+            "You believe in me when I forget how.",
+            "Your presence feels like a warm blanket on a cold day.",
+            "You love without conditions, without limits.",
+            "You are my favorite notification.",
+            "You turn my storms into calm waters.",
+            "You exist. that alone is enough reason."
+        ];
+
+        let affirmationIndex = 0;
+        let reasonIndex = 0;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            createFloatingElements();
+            initProgressBar();
+            initScrollReveal();
+            addLetterListeners();
+            
+            document.getElementById('closeModalBtn').addEventListener('click', closeLetter);
+            document.getElementById('letterModal').addEventListener('click', function(e) {
+                if (e.target === this) closeLetter();
+            });
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') closeLetter();
+            });
+            
+            setInterval(function() {
+                if (!document.getElementById('letterModal').classList.contains('active')) {
+                    rotateAffirmation();
+                }
+            }, 4000);
+        });
+
+        function addLetterListeners() {
+            document.querySelectorAll('.envelope-seal, .envelope').forEach(el => {
+                el.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const idx = this.getAttribute('data-letter');
+                    if (idx) openLetter(parseInt(idx));
+                });
+            });
+        }
+
+        function openLetter(index) {
+            const modal = document.getElementById('letterModal');
+            document.getElementById('modalLetterHeading').innerHTML = `<i class="fas fa-feather"></i> ${unsentLetters[index].heading}`;
+            document.getElementById('modalLetterContent').innerHTML = unsentLetters[index].content.replace(/\n/g, '<br><br>');
+            document.getElementById('modalLetterSignature').textContent = unsentLetters[index].signature;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            createModalSparkles();
+        }
+
+        function closeLetter() {
+            document.getElementById('letterModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function createModalSparkles() {
+            for (let i = 0; i < 8; i++) {
+                setTimeout(() => {
+                    const s = document.createElement('div');
+                    s.style.cssText = `position:fixed; left:${Math.random()*100}%; top:${Math.random()*100}%; font-size:${Math.random()*14+10}px; color:#ffb6c1; pointer-events:none; z-index:2500; animation:sparkleFade 0.8s ease-out forwards;`;
+                    s.innerHTML = ['✨','💫','🌟','💖'][Math.floor(Math.random()*4)];
+                    document.body.appendChild(s);
+                    setTimeout(() => s.remove(), 800);
+                }, i * 30);
+            }
+        }
+
+        window.sparkleAffirmation = function(element) {
+            for (let i = 0; i < 6; i++) {
+                setTimeout(() => {
+                    const rect = element.getBoundingClientRect();
+                    const s = document.createElement('div');
+                    s.style.cssText = `position:fixed; left:${rect.left+rect.width/2+(Math.random()-0.5)*70}px; top:${rect.top+rect.height/2+(Math.random()-0.5)*70}px; font-size:${Math.random()*12+10}px; color:#ff8aa5; pointer-events:none; z-index:100; animation:sparkleFade 0.7s ease-out forwards;`;
+                    s.innerHTML = ['✨','💕','🌸','💫'][Math.floor(Math.random()*4)];
+                    document.body.appendChild(s);
+                    setTimeout(() => s.remove(), 700);
+                }, i * 25);
+            }
+        };
+
+        window.rotateAffirmation = function() {
+            const el = document.getElementById('rotatingAffirmation');
+            affirmationIndex = (affirmationIndex + 1) % affirmationsList.length;
+            el.style.opacity = '0';
+            setTimeout(() => {
+                el.textContent = affirmationsList[affirmationIndex];
+                el.style.opacity = '1';
+            }, 150);
+            
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    const rect = el.getBoundingClientRect();
+                    const h = document.createElement('div');
+                    h.style.cssText = `position:fixed; left:${rect.left+rect.width/2+(Math.random()-0.5)*120}px; top:${rect.top+rect.height/2+(Math.random()-0.5)*120}px; font-size:${Math.random()*14+10}px; color:#ff8aa5; pointer-events:none; z-index:1000; animation:heartFloatUp 0.9s ease-out forwards;`;
+                    h.innerHTML = ['💖','💗','💓','💕'][Math.floor(Math.random()*4)];
+                    document.body.appendChild(h);
+                    setTimeout(() => h.remove(), 900);
+                }, i * 40);
+            }
+        };
+
+        window.heartPop = function(element) {
+            for (let i = 0; i < 8; i++) {
+                setTimeout(() => {
+                    const rect = element.getBoundingClientRect();
+                    const h = document.createElement('div');
+                    h.style.cssText = `position:fixed; left:${rect.left+rect.width/2+(Math.random()-0.5)*90}px; top:${rect.top+rect.height/2+(Math.random()-0.5)*90}px; font-size:${Math.random()*16+12}px; color:#c45a75; pointer-events:none; z-index:100; animation:heartFloatUp 1s ease-out forwards;`;
+                    h.innerHTML = ['❤️','💖','💗','💕','💘'][Math.floor(Math.random()*5)];
+                    document.body.appendChild(h);
+                    setTimeout(() => h.remove(), 1000);
+                }, i * 30);
+            }
+        };
+
+        // New function for reason generator
+        window.generateNewReason = function() {
+            const reasonDisplay = document.getElementById('reasonDisplay');
+            reasonIndex = Math.floor(Math.random() * reasonsList.length);
+            
+            // Fade out effect
+            reasonDisplay.style.opacity = '0';
+            reasonDisplay.style.transform = 'scale(0.95)';
+            
+            setTimeout(() => {
+                reasonDisplay.innerHTML = `<i class="fas fa-quote-left"></i> ${reasonsList[reasonIndex]} <i class="fas fa-quote-right"></i>`;
+                reasonDisplay.style.opacity = '1';
+                reasonDisplay.style.transform = 'scale(1)';
+            }, 150);
+            
+            // Create heart explosion
+            for (let i = 0; i < 8; i++) {
+                setTimeout(() => {
+                    const rect = reasonDisplay.getBoundingClientRect();
+                    const h = document.createElement('div');
+                    h.style.cssText = `position:fixed; left:${rect.left+rect.width/2+(Math.random()-0.5)*120}px; top:${rect.top+rect.height/2+(Math.random()-0.5)*120}px; font-size:${Math.random()*16+12}px; color:#ff8aa5; pointer-events:none; z-index:1000; animation:heartFloatUp 0.9s ease-out forwards;`;
+                    h.innerHTML = ['💖','💗','💓','💕','💘'][Math.floor(Math.random()*5)];
+                    document.body.appendChild(h);
+                    setTimeout(() => h.remove(), 900);
+                }, i * 30);
+            }
+        };
+
+        function createFloatingElements() {
+            const c = document.getElementById('floatingElements');
+            if (!c) return;
+            const items = ['💖', '💗', '🌸', '🦋', '✨', '💫', '🌷', '💕'];
+            for (let i = 0; i < 12; i++) {
+                setTimeout(() => {
+                    const e = document.createElement('div');
+                    e.className = 'floating-item';
+                    e.textContent = items[Math.floor(Math.random() * items.length)];
+                    e.style.left = Math.random() * 100 + '%';
+                    e.style.animationDuration = (Math.random() * 10 + 22) + 's';
+                    e.style.animationDelay = Math.random() * 5 + 's';
+                    c.appendChild(e);
+                    setTimeout(() => e.remove(), 32000);
+                }, i * 80);
+            }
+            
+            setInterval(() => {
+                if (c.children.length < 10) {
+                    const e = document.createElement('div');
+                    e.className = 'floating-item';
+                    e.textContent = items[Math.floor(Math.random() * items.length)];
+                    e.style.left = Math.random() * 100 + '%';
+                    e.style.animationDuration = (Math.random() * 10 + 22) + 's';
+                    c.appendChild(e);
+                    setTimeout(() => e.remove(), 32000);
+                }
+            }, 3000);
+        }
+
+        function initProgressBar() {
+            const fill = document.getElementById('progressFill');
+            window.addEventListener('scroll', () => {
+                const s = window.pageYOffset || document.documentElement.scrollTop;
+                const h = document.documentElement.scrollHeight - window.innerHeight;
+                fill.style.width = (s / h) * 100 + '%';
+            });
+        }
+
+        function initScrollReveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            function check() {
+                reveals.forEach(r => {
+                    if (r.getBoundingClientRect().top < window.innerHeight - 70) {
+                        r.classList.add('active');
+                    }
+                });
+            }
+            window.addEventListener('scroll', check);
+            check();
+        }
+
+        window.closeLetter = closeLetter;
+    </script>
+</body>
+</html>
